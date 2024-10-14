@@ -1,5 +1,6 @@
 ---
-import Backgroud from "../sections/Backgroud.astro";
+import Background from "../sections/Background.astro";
+import Aside from "../sections/Aside.astro";
 interface Props {
 	title: string;
 }
@@ -17,7 +18,8 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="w-dvw h-dvh scroll-smooth text-white font-mono">
-		<Backgroud/>
+	<body class="w-dvw h-dvh grid grid-cols-4 scroll-smooth text-black font-mono bg-white">
+		<Background/>
+		<Aside/>
 	</body>
 </html>

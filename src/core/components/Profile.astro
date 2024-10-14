@@ -1,0 +1,25 @@
+---
+import profile from "../assets/images/profile.jpg"
+import {Image} from "astro:assets";
+---
+<figure class="relative w-fit h-fit bg-transparent flex items-center justify-center shadow-2xl shadow-indigo-200">
+    <div class="absolute w-[130px] h-[130px]">
+        <div class="bg-gradient-to-l from-indigo-600 from-0% to-95% to-transparent w-[110px] h-[1px] absolute -left-[40px]"/>
+        <div class="bg-gradient-to-r from-indigo-600 from-0% to-95% to-transparent w-[110px] h-[1px] absolute -right-[40px]"/>
+        <div class="bg-gradient-to-l from-indigo-600 from-0% to-95% to-transparent w-[110px] h-[1px] absolute bottom-0 -left-[40px]"/>
+        <div class="bg-gradient-to-r from-indigo-600 from-0% to-95% to-transparent w-[110px] h-[1px] absolute bottom-0 -right-[40px]"/>
+        <div class="bg-gradient-to-t from-indigo-600 from-0% to-95% to-transparent w-[1px] h-[110px] absolute -top-[40px] left-0"/>
+        <div class="bg-gradient-to-b from-indigo-600 from-0% to-95% to-transparent w-[1px] h-[110px] absolute -bottom-[40px] left-0"/>
+        <div class="bg-gradient-to-t from-indigo-600 from-0% to-95% to-transparent w-[1px] h-[110px] absolute -top-[40px] right-0"/>
+        <div class="bg-gradient-to-b from-indigo-600 from-0% to-95% to-transparent w-[1px] h-[110px] absolute -bottom-[40px] right-0"/>
+    </div>
+    <Image src={profile} alt="profile photo" width={400} height={400}
+           class="w-[120px] h-[120px] rounded-3xl profile" />
+</figure>
+<style is:inline>
+    .profile{
+        box-shadow: 80px 60px 200px 61px rgba(37,99,235,0.6);
+        -webkit-box-shadow: 80px 60px 200px 61px rgba(37,99,235,0.6);
+        -moz-box-shadow: 80px 60px 200px 61px rgba(37,99,235,0.6);
+    }
+</style>
