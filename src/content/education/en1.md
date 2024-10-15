@@ -3,7 +3,7 @@ institute: "University of Magdalena"
 instituteUrl: "https://unimagdalena.edu.co/"
 program: "Systems Engineering"
 type: "Professional Undergraduate"
-date: "2019 - 2025"
+date: "08/2019 - ??/2025"
 ---
 <br/>
 

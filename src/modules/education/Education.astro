@@ -7,7 +7,9 @@ const {lang} = Astro.props;
 import { getEntry } from 'astro:content';
 import Element from './components/Element.astro';
 const element1 = await getEntry("education", lang.concat("1"))
+const element2 = await getEntry("education", lang.concat("2"))
 ---
 <Section title='Education'>
   <Element item={element1}/>
+  <Element item={element2}/>
 </Section>

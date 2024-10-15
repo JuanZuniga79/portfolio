@@ -8,10 +8,8 @@ import Section from "../../core/components/Section.astro";
 import {getEntry} from "astro:content"
 const content1 = await getEntry("experience", lang.concat("1"));
 const content2 = await getEntry("experience", lang.concat("2"));
-const content3 = await getEntry("experience", lang.concat("3"))
 ---
 <Section title="Experience">
     <Element item={content1}/>
     <Element item={content2}/>
-    <Element item={content3}/>
 </Section>
