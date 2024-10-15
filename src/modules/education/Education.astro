@@ -1,0 +1,13 @@
+---
+import Section from '../../core/components/Section.astro';
+interface Props{
+  lang: string
+}
+const {lang} = Astro.props;
+import { getEntry } from 'astro:content';
+import Element from './components/Element.astro';
+const element1 = await getEntry("education", lang.concat("1"))
+---
+<Section title='Education'>
+  <Element item={element1}/>
+</Section>

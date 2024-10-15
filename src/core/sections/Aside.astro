@@ -1,8 +1,59 @@
 ---
 import Profile from "../components/Profile.astro";
+import World from "../assets/icons/World.astro";
+import ProfileLine from "../components/ProfileLine.astro";
+import Mail from "../assets/icons/Mail.astro";
+import ProfileSocialMedia from "../components/ProfileSocialMedia.astro";
+import ProfileSocialMediaIcon from "../components/ProfileSocialMediaIcon.astro";
+import GitHub from "../assets/icons/GitHub.astro";
+import Linkedin from "../assets/icons/Linkedin.astro";
+import Twitter from "../assets/icons/Twitter.astro";
+import Instagram from "../assets/icons/Instagram.astro";
+import { getEntry } from "astro:content";
+import Markdown from "../components/Markdown.astro";
+interface Props{
+    lang: string
+}
+const {lang} = Astro.props;
+const p1 =  await getEntry('profile', lang)
+const data = p1!.data;
+const {Content} = await p1!.render();
 ---
-<aside class="w-full h-full flex items-center justify-end px-5 py-14">
-    <div class="flex flex-col w-[80%] h-full">
+<aside class="w-full h-full flex col-span-3 items-center justify-end px-5 py-14">
+    <div class="flex flex-col w-[80%] h-full gap-y-6 font-light">
         <Profile/>
+        <section class="flex flex-col gap-y-4">
+            <div class="w-full">
+                <h1 class="text-4xl text-start font-semibold">
+                    {data.name}
+                </h1>
+                <span class="text-base font-light">
+                    {data.job}
+                </span>
+            </div>
+            <ProfileLine text={data.address}>
+                <World/>
+            </ProfileLine>
+            <ProfileLine text={data.email}>
+                <Mail/>
+            </ProfileLine>
+            <ProfileSocialMedia>
+                <ProfileSocialMediaIcon url="https://github.com/JuanZuniga79">
+                    <GitHub/>
+                </ProfileSocialMediaIcon>
+                <ProfileSocialMediaIcon url="https://www.linkedin.com/in/zunigajuan7/">
+                    <Linkedin/>
+                </ProfileSocialMediaIcon>
+                <ProfileSocialMediaIcon url="">
+                    <Twitter/>
+                </ProfileSocialMediaIcon>
+                <ProfileSocialMediaIcon url="">
+                    <Instagram/>
+                </ProfileSocialMediaIcon>
+            </ProfileSocialMedia>
+            <Markdown>
+                <Content/>
+            </Markdown>
+        </section>
     </div>
 </aside>

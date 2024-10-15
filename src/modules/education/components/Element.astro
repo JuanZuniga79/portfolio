@@ -1,0 +1,45 @@
+---
+import Markdown from "../../../core/components/Markdown.astro";
+import RTArrow from "../../../core/assets/icons/RTArrow.astro";
+interface Props {
+  item: any;
+}
+const { item } = Astro.props;
+const { Content } = await item.render();
+---
+
+<li class="flex w-full h-full gap-x-4 py-2">
+  <div class="w-36 text-sm border-r-[2px] relative">
+    <span>{item.data.date}</span>
+    <figure
+      class="absolute -top-3 -right-[5.4px] w-2 h-2 rounded-full bg-gray-200"
+    >
+    </figure>
+  </div>
+  <div class="flex flex-col items-start">
+    <div class="w-fit flex items-center gap-x-2">
+      <h4 class="font-light capitalize">
+        {item.data.program}
+        @
+      </h4>
+      <a
+        href={item.data.instituteUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-indigo-600 underline-offset-2 underline flex items-center
+           hover:animate-pulse"
+      >
+        {item.data.institute}
+        <figure class="w-6 h-6">
+          <RTArrow />
+        </figure>
+      </a>
+    </div>
+    <span class="italic">
+      {item.data.type}
+    </span>
+    <Markdown>
+      <Content />
+    </Markdown>
+  </div>
+</li>

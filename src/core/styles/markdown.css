@@ -1,0 +1,71 @@
+.markdown {
+    p, h1, h2, h3, h4, h5, h6, blockquote, span {
+        white-space: pre-wrap; /* Preserves both spaces and line breaks */
+    }
+
+    h1 {
+        font-size: 2.25rem;
+        font-weight: bold;
+    }
+
+    h2 {
+        font-size: 1.875rem;
+        font-weight: bold;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    h4 {
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+
+    h5 {
+        font-size: 1.125rem;
+    }
+
+    h6 {
+        font-size: 1rem;
+    }
+
+    span {
+        font-size: 0.875rem;
+        font-style: italic;
+    }
+
+    p {
+        font-size: 0.875rem;
+    }
+
+    blockquote {
+        font-size: 0.75rem;
+        background-color: rgba(203, 213, 224, 0.3);
+        border-radius: 0.5rem;
+        padding: 0.5rem 1rem;
+        font-style: italic;
+    }
+
+    code {
+        font-size: 0.875rem;
+        background-color: rgba(203, 213, 224, 0.3);
+    }
+
+    /* To add spacing between code lines */
+    code, pre {
+        line-height: 1.5;
+    }
+
+    ul, ol {
+        padding-left: 2rem;
+    }
+
+    li {
+        list-style: disc;
+        font-size: 0.875rem;
+        font-weight: 300;
+    }
+
+}

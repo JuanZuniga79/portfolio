@@ -1,7 +1,11 @@
 ---
 import Layout from '../core/layouts/Layout.astro';
+import Experience from "../modules/experience/Experience.astro";
+import Education from '../modules/education/Education.astro';
+const lang = "en"
 ---
 
-<Layout title="Welcome to Astro.">
-
+<Layout title="Zuniga Portfolio" lang={lang}>
+    <Experience lang={lang}/>
+    <Education lang={lang}/>
 </Layout>
