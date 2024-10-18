@@ -4,17 +4,17 @@ interface Props {
     lang: string
 }
 const { item, lang } = Astro.props;
-const { Content } = await item.render();
 ---
 
 <li class="list-none">
     <a
+        target="_blank"
         href={item.data.courseUrl}
-        class="border-[1.5px] rounded-xl p-4 flex flex-col border-gray-200 hover:border-indigo-200
-        bg-gray-50 bg-opacity-80 hover:bg-indigo-50 w-full text-sm"
+        class="border-[1.5px] rounded-xl p-4 flex flex-col border-gray-200 dark:border-slate-800 dark:hover:border-indigo-400 hover:border-indigo-200
+        bg-gray-50 dark:bg-slate-600 dark:hover:bg-indigo-800 bg-opacity-60 dark:bg-opacity-60 hover:bg-indigo-50 w-full text-sm h-full"
     >
-        <p class="italic text-xl font-semibold">{item.data.platform}</p>
-        <p class="italic text-lg font-medium">{item.data.course}</p>
+        <p class="italic text-lg font-semibold">{item.data.platform}</p>
+        <p class="italic text-base font-medium">{item.data.course}</p>
         <span>
             {lang === "en" ? "Total Duration" : "Duracion Total"}:
             +{item.data.duration}h
@@ -22,6 +22,9 @@ const { Content } = await item.render();
         <span>
             {lang === "en" ? "Obtained" : "Obtenido"}:
             {item.data.date}
+        </span>
+        <span class={`${item.data.statusBool ? "text-green-600":"text-amber-400"} font-semibold`}>
+            {item.data.status}
         </span>
     </a>
 </li>

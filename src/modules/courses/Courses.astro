@@ -7,13 +7,13 @@ interface Props {
 }
 const { lang } = Astro.props;
 const courses = [];
-for (let i = 1; i <= 1; i++) {
+for (let i = 1; i <= 3; i++) {
     courses.push(await getEntry("courses", lang.concat(i.toString())));
 }
 ---
 
 <Section id="courses" title="Courses">
-    <div class="grid grid-cols-4 w-full">
+    <ul class="grid grid-cols-4 gap-4 w-full">
         {courses.map((item) => <Element lang={lang} item={item} />)}
-    </div>
+    </ul>
 </Section>

@@ -41,6 +41,8 @@ const courses = defineCollection({
         courseUrl: z.string(),
         duration: z.number(),
         date: z.string(),
+        status: z.string(),
+        statusBool: z.boolean()
     })
 })
 
