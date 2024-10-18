@@ -1,0 +1,27 @@
+---
+interface Props {
+    item: any;
+    lang: string
+}
+const { item, lang } = Astro.props;
+const { Content } = await item.render();
+---
+
+<li class="list-none">
+    <a
+        href={item.data.courseUrl}
+        class="border-[1.5px] rounded-xl p-4 flex flex-col border-gray-200 hover:border-indigo-200
+        bg-gray-50 bg-opacity-80 hover:bg-indigo-50 w-full text-sm"
+    >
+        <p class="italic text-xl font-semibold">{item.data.platform}</p>
+        <p class="italic text-lg font-medium">{item.data.course}</p>
+        <span>
+            {lang === "en" ? "Total Duration" : "Duracion Total"}:
+            +{item.data.duration}h
+        </span>
+        <span>
+            {lang === "en" ? "Obtained" : "Obtenido"}:
+            {item.data.date}
+        </span>
+    </a>
+</li>

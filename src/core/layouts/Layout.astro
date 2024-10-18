@@ -3,6 +3,7 @@ import { ViewTransitions } from 'astro:transitions';
 import Background from "../sections/Background.astro";
 import Aside from "../sections/Aside.astro";
 import RightSide from "../sections/RightSide.astro";
+import Footer from "../sections/Footer.astro"
 interface Props {
 	title: string;
 	lang: "en" | "es"
@@ -25,8 +26,9 @@ const { title, lang } = Astro.props;
 	<body class="w-dvw h-dvh grid grid-cols-12 scroll-smooth dark:text-white dark:bg-slate-800 font-mono bg-white gap-x-10 transition-all duration-300 overflow-x-hidden relative">
 		<Background/>
 		<Aside lang={lang}/>
-		<main class="col-span-8 pt-16">
+		<main class="col-span-8 flex flex-col gap-y-10 pt-16">
 			<slot/>
+			<Footer/>
 		</main>
 		<RightSide language={lang} navigation={[]}/>
 	</body>

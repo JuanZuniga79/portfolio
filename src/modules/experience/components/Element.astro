@@ -1,43 +1,57 @@
 ---
 import RTArrow from "../../../core/assets/icons/RTArrow.astro";
+import Worker from "../../../core/assets/icons/Worker.astro";
 import Markdown from "../../../core/components/Markdown.astro";
-interface Props{
-    item: any
+interface Props {
+    item: any;
 }
-const {item} = Astro.props
-const {Content} = await item.render()
+const { item } = Astro.props;
+const { Content } = await item.render();
 ---
+
 <li class="flex w-full h-full gap-x-4 py-2">
     <div class="w-36 text-sm border-r-[2px] relative">
         <span>
             {item.data.date}
         </span>
-        <figure class="absolute -top-3 -right-[5.4px] w-2 h-2 rounded-full bg-gray-200" />
+        <figure
+            class="absolute -top-3 -right-[5.4px] w-2 h-2 rounded-full bg-gray-200"
+        >
+        </figure>
     </div>
-    <div class="flex flex-col items-start">
-       <div class="w-fit flex items-center gap-x-2">
-           <h4 class="font-light capitalize">
-               {item.data.job}
-               @
-           </h4>
-           <a href={item.data.businessUrl} target="_blank" rel="noopener noreferrer"
-              class="hover:text-indigo-600 underline-offset-2 underline flex items-center
-           hover:animate-pulse">
-               {item.data.business}
-               <figure class="w-6 h-6">
-                   <RTArrow/>
-               </figure>
-           </a>
-       </div>
-       <Markdown>
-           <Content/>
-       </Markdown>
-       <ul class="flex items-center flex-wrap mt-5 gap-x-2">
-            {item.data.tech.map((item:any)=> (
-                <li class="p-2 py-0.5 rounded-2xl border-2 text-sm gap-1 backdrop-blur-md">
-                    {item}
-                </li>
-            ))}
-       </ul>
-   </div>
+    <div class="flex flex-col items-start justify-center">
+        <div class="w-fit flex items-center gap-x-2">
+            <figure class="w-7 h-7 font-light">
+                <Worker />
+            </figure>
+            <h4 class="font-light capitalize">
+                {item.data.job}
+                @
+            </h4>
+            <a
+                href={item.data.businessUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-indigo-600 underline-offset-2 underline flex items-center
+           hover:animate-pulse"
+            >
+                {item.data.business}
+                <figure class="w-6 h-6">
+                    <RTArrow />
+                </figure>
+            </a>
+        </div>
+        <Markdown>
+            <Content />
+        </Markdown>
+        <ul class="flex items-center flex-wrap mt-5 gap-x-2">
+            {
+                item.data.tech.map((item: any) => (
+                    <li class="p-2 py-0.5 rounded-2xl border-2 text-sm gap-1 backdrop-blur-md">
+                        {item}
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
 </li>

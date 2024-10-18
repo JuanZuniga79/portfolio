@@ -7,4 +7,4 @@ date: "08/2019 - ??/2025"
 ---
 <br/>
 
-During the pandemic I had problems that have delayed me in graduating
+> During the pandemic I had problems that have delayed me in graduating
