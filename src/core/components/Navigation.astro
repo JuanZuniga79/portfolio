@@ -1,0 +1,42 @@
+---
+import Worker from "../assets/icons/Worker.astro";
+import RightSideIcon from "./RightSideIcon.astro";
+import TArrow from "../assets/icons/TArrow.astro";
+import Education2 from "../assets/icons/Education2.astro";
+import Education from "../assets/icons/Education.astro";
+---
+
+<nav class="flex flex-col gap-y-2">
+    <RightSideIcon id="toTop">
+        <TArrow />
+        <script>
+            document.getElementById("toTop")?.addEventListener("click", () => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+        </script>
+    </RightSideIcon>
+    <RightSideIcon id="ex">
+        <Worker />
+        <script>
+            document.getElementById("ex")?.addEventListener("click", () => {
+                document.getElementById("experience")?.scrollIntoView({ behavior: "smooth" });
+            });
+        </script>
+    </RightSideIcon>
+    <RightSideIcon id="ed">
+        <Education2/>
+        <script>
+            document.getElementById("ed")?.addEventListener("click", ()=> {
+                document.getElementById("education")?.scrollIntoView({ behavior: "smooth" })
+            })
+        </script>
+    </RightSideIcon>
+    <RightSideIcon id="sc">
+        <Education/>
+        <script>
+            document.getElementById("sc")?.addEventListener("click", ()=>{
+                document.getElementById("courses")?.scrollIntoView({behavior: "smooth"})
+            })
+        </script>
+    </RightSideIcon>
+</nav>

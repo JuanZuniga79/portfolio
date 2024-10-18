@@ -9,7 +9,7 @@ import {getEntry} from "astro:content"
 const content1 = await getEntry("experience", lang.concat("1"));
 const content2 = await getEntry("experience", lang.concat("2"));
 ---
-<Section title="Experience">
+<Section id="experience" title="Experience">
     <Element item={content1}/>
     <Element item={content2}/>
 </Section>

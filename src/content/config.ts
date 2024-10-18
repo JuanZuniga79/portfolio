@@ -33,7 +33,22 @@ const education = defineCollection({
     })
 })
 
+const courses = defineCollection({
+    type: "content",
+    schema: z.object({
+        platform: z.string(),
+        course: z.string(),
+        courseUrl: z.string(),
+        duration: z.number(),
+        date: z.string(),
+        status: z.string(),
+        statusBool: z.boolean()
+    })
+})
+
 export const collections = {
     'profile': profile,
     'experience': experience,
+    'education': education,
+    'courses': courses
 }
