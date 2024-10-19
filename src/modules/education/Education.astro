@@ -7,7 +7,7 @@ const {lang} = Astro.props;
 import { getEntry } from 'astro:content';
 import Element from './components/Element.astro';
 const elements = []
-for (let i = 1; i <= 3; i++) {
+for (let i = 1; i <= 4; i++) {
   elements.push(await getEntry("education", lang.concat(i.toString())))
 }
 ---
