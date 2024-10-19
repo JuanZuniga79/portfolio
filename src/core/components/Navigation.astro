@@ -3,7 +3,7 @@ import Worker from "../assets/icons/Worker.astro";
 import RightSideIcon from "./RightSideIcon.astro";
 import TArrow from "../assets/icons/TArrow.astro";
 import Education2 from "../assets/icons/Education2.astro";
-import Education from "../assets/icons/Education.astro";
+import Mind from "../assets/icons/Mind.astro";
 ---
 
 <nav class="flex flex-col gap-y-2">
@@ -28,6 +28,14 @@ import Education from "../assets/icons/Education.astro";
         <script>
             document.getElementById("ed")?.addEventListener("click", ()=> {
                 document.getElementById("education")?.scrollIntoView({ behavior: "smooth" })
+            })
+        </script>
+    </RightSideIcon>
+    <RightSideIcon id="ss">
+        <Mind/>
+        <script>
+            document.getElementById("ss")?.addEventListener("click", ()=>{
+                document.getElementById("soft")?.scrollIntoView({behavior: "smooth"})
             })
         </script>
     </RightSideIcon>
