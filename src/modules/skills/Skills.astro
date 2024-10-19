@@ -30,32 +30,49 @@ const hard = getHardSkills(lang);
                                 class="border-2 flex flex-col h-full gap-y-1 rounded-xl list-none p-4 bg-gray-100 bg-opacity-50 backdrop-blur-md
                     dark:bg-slate-800 dark:border-slate-600 dark:bg-opacity-60 text-sm"
                             >
-                                <h4 class="text-base italic font-semibold">{element.name} {element.version}</h4>
+                                <h4 class="text-base italic font-semibold">
+                                    {element.name} {element.version}
+                                </h4>
                                 <p>
-                                    {lang === "en" ? "From": "Desde"} 
+                                    {lang === "en" ? "Learning from" : "Aprendiendo desde"}
                                     {element.from}
                                 </p>
                                 <div class="flex flex-col items-center gap-y-2">
                                     <p class="w-full text-left">
-                                        {lang === "en" ? "Activity Level" : "Nivel de Actividad"}:
+                                        {lang === "en"
+                                            ? "Activity Level"
+                                            : "Nivel de Actividad"}
+                                        :
                                     </p>
                                     <div class="flex items-start gap-x-[1px] w-full h-5 rounded-xl overflow-hidden">
-                                        <figure class="bg-red-500 w-[10%] h-full"/>
-                                        <figure class="bg-red-500 w-[10%] h-full"/>
-                                        <figure class="bg-red-500 w-[10%] h-full"/>
-                                        <figure class="bg-amber-600 w-[10%] h-full"/>
-                                        <figure class="bg-amber-600 w-[10%] h-full"/>
-                                        <figure class="bg-amber-400 w-[10%] h-full"/>
-                                        <figure class="bg-amber-400 w-[10%] h-full"/>
-                                        <figure class="bg-green-500 w-[10%] h-full"/>
-                                        <figure class="bg-green-500 w-[10%] h-full"/>
-                                        <figure class="bg-green-500 w-[10%] h-full"/>
+                                        {Array.from({
+                                            length: element.activity,
+                                        }).map((_, index) => (
+                                            <figure
+                                                class={`w-[10%] h-full ${
+                                                    index === 0
+                                                        ? "bg-red-500"
+                                                        : index <= 2
+                                                          ? "bg-amber-500"
+                                                          : index <= 5
+                                                            ? "bg-amber-300"
+                                                            : index <= 7
+                                                              ? "bg-green-600"
+                                                              : "bg-green-500"
+                                                }`}
+                                            />
+                                        ))}
                                     </div>
-                                <p>
-                                    {lang === "en" ? "Lately" : "Recientemente"} 
-                                    {element.frequency}
-                                </p>
+                                    <p>
+                                        {lang === "en"
+                                            ? "Lately"
+                                            : "Recientemente"}
+                                        {element.frequency}
+                                    </p>
                                 </div>
+                                <a href={`/projects/${element.name}`} class="text-indigo-400 underline underline-offset-1 capitalize italic hover:text-indigo-200" >
+                                    {lang === "en" ? "See Projects" : "Ver Projectos"}
+                                </a>
                             </li>
                         ))}
                     </ul>
