@@ -9,40 +9,37 @@ import Mind from "../assets/icons/Mind.astro";
 <nav class="flex flex-col gap-y-2">
     <RightSideIcon id="toTop">
         <TArrow />
-        <script>
-            document.getElementById("toTop")?.addEventListener("click", () => {
-                window.scrollTo({ top: 0, behavior: "smooth" });
-            });
-        </script>
     </RightSideIcon>
     <RightSideIcon id="ex">
         <Worker />
-        <script>
-            document.getElementById("ex")?.addEventListener("click", () => {
-                document
-                    .getElementById("experience")
-                    ?.scrollIntoView({ behavior: "smooth" });
-            });
-        </script>
     </RightSideIcon>
     <RightSideIcon id="ed">
         <Education2 />
-        <script>
-            document.getElementById("ed")?.addEventListener("click", () => {
-                document
-                    .getElementById("education")
-                    ?.scrollIntoView({ behavior: "smooth" });
-            });
-        </script>
     </RightSideIcon>
     <RightSideIcon id="ss">
         <Mind />
-        <script>
-            document.getElementById("ss")?.addEventListener("click", () => {
-                document
-                    .getElementById("soft")
-                    ?.scrollIntoView({ behavior: "smooth" });
-            });
-        </script>
     </RightSideIcon>
+    <script>
+        const sections: { key: string; val: string }[] = [
+            { key: "toTop", val: "" },
+            { key: "ex", val: "experience" },
+            { key: "ed", val: "education" },
+            { key: "ss", val: "soft" },
+        ];
+        document.addEventListener("astro:page-load", () => {
+            sections.map((item) => {
+                document
+                    .getElementById(item.key)
+                    ?.addEventListener("click", () => {
+                        if (item.val === "") {
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                        } else {
+                            document
+                                .getElementById(item.val)
+                                ?.scrollIntoView({ behavior: "smooth" });
+                        }
+                    });
+            });
+        });
+    </script>
 </nav>
