@@ -4,6 +4,7 @@ instituteUrl: "https://www.aluracursos.com/"
 program: "Java Backend Developer"
 type: "Tech Bootcamp"
 date: "04/2023 - 10/2023"
+certification: ""
 ---
 <br/>
 

@@ -1,0 +1,13 @@
+---
+import Layout from '../../core/layouts/Layout.astro';
+import Experience from "../../modules/experience/Experience.astro";
+import Education from '../../modules/education/Education.astro';
+import Skills from '../../modules/skills/Skills.astro';
+const lang = "es"
+---
+
+<Layout title="Zuniga Portfolio" lang={lang}>
+    <Experience lang={lang}/>
+    <Education lang={lang}/>
+    <Skills lang={lang}/>
+</Layout>

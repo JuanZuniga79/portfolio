@@ -3,7 +3,7 @@ import Worker from "../assets/icons/Worker.astro";
 import RightSideIcon from "./RightSideIcon.astro";
 import TArrow from "../assets/icons/TArrow.astro";
 import Education2 from "../assets/icons/Education2.astro";
-import Education from "../assets/icons/Education.astro";
+import Mind from "../assets/icons/Mind.astro";
 ---
 
 <nav class="flex flex-col gap-y-2">
@@ -19,24 +19,30 @@ import Education from "../assets/icons/Education.astro";
         <Worker />
         <script>
             document.getElementById("ex")?.addEventListener("click", () => {
-                document.getElementById("experience")?.scrollIntoView({ behavior: "smooth" });
+                document
+                    .getElementById("experience")
+                    ?.scrollIntoView({ behavior: "smooth" });
             });
         </script>
     </RightSideIcon>
     <RightSideIcon id="ed">
-        <Education2/>
+        <Education2 />
         <script>
-            document.getElementById("ed")?.addEventListener("click", ()=> {
-                document.getElementById("education")?.scrollIntoView({ behavior: "smooth" })
-            })
+            document.getElementById("ed")?.addEventListener("click", () => {
+                document
+                    .getElementById("education")
+                    ?.scrollIntoView({ behavior: "smooth" });
+            });
         </script>
     </RightSideIcon>
-    <RightSideIcon id="sc">
-        <Education/>
+    <RightSideIcon id="ss">
+        <Mind />
         <script>
-            document.getElementById("sc")?.addEventListener("click", ()=>{
-                document.getElementById("courses")?.scrollIntoView({behavior: "smooth"})
-            })
+            document.getElementById("ss")?.addEventListener("click", () => {
+                document
+                    .getElementById("soft")
+                    ?.scrollIntoView({ behavior: "smooth" });
+            });
         </script>
     </RightSideIcon>
 </nav>

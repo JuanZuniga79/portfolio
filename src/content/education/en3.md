@@ -4,6 +4,7 @@ instituteUrl: "https://talentotech.gov.co/portal/"
 program: "Specialization in Artificial Intelligence"
 type: "Tech Bootcamp"
 date: "08/2024 - ??"
+certification: ""
 ---
 <br/>
 

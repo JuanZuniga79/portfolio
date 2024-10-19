@@ -1,29 +1,37 @@
 ---
-import type INavigation from "../data/types/INavigation";
 import Language from "../assets/icons/Language.astro";
 import RightSideIcon from "../components/RightSideIcon.astro";
 import DayNNite from "../assets/icons/DayNNite.astro";
 import Navigation from "../components/Navigation.astro";
-interface Props{
-    navigation : INavigation[],
-    language : "es" | "en"
+interface Props {
+    language: "es" | "en";
 }
-const {navigation, language} = Astro.props
+const { language } = Astro.props;
 ---
-<aside class="w-[5%] h-dvh fixed top-0 right-0 flex flex-col justify-between items-center py-5">
-    <a href={language === "en" ? "/es":"/"} >
+
+<aside
+    class="w-[5%] h-dvh fixed top-0 right-0 flex flex-col justify-between items-center py-5"
+>
+    <a href={language === "en" ? "/es" : "/"}>
         <RightSideIcon id="language">
-            <Language/>
+            <Language />
         </RightSideIcon>
     </a>
-    <Navigation/>
+    <Navigation />
     <RightSideIcon id="theme">
-        <DayNNite/>
+        <DayNNite />
         <script>
-            const theme = document.getElementById("theme");
-            theme?.addEventListener("click", ()=>{
-                document.body.classList.toggle("dark")
-            })
+            document.addEventListener("astro:page-load", () => {
+                const theme = document.getElementById("theme");
+                theme?.addEventListener("click", () => {
+                    document.body.classList.toggle("dark");
+                    if (document.body.classList.contains("dark")) {
+                        localStorage.setItem("theme", "dark");
+                    } else {
+                        localStorage.setItem("theme", "light");
+                    }
+                });
+            });
         </script>
     </RightSideIcon>
 </aside>

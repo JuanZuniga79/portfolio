@@ -1,0 +1,22 @@
+---
+import getSoftSkills from "../../core/data/softSkills";
+import Section from "../../core/components/Section.astro";
+interface Props{
+    lang: string
+}
+const {lang} = Astro.props
+const skills = getSoftSkills(lang)
+---
+<Section id="soft" title="Soft Skills">
+    <ul class="grid grid-cols-5 gap-4 w-full h-fit">
+        {skills.map((item)=> (
+            <li class="border-2 flex flex-col h-full gap-y-2 rounded-xl list-none p-4 bg-gray-100 bg-opacity-50 backdrop-blur-md
+                    dark:bg-slate-800 dark:border-slate-600 dark:bg-opacity-60">
+                <h3 class="capitalize text-lg italic font-semibold">{item.name}</h3>
+                <p class="text-sm">
+                    {item.description}
+                </p>
+            </li>
+        ))}
+    </ul>
+</Section>
