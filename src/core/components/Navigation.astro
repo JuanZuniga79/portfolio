@@ -19,24 +19,30 @@ import Mind from "../assets/icons/Mind.astro";
         <Worker />
         <script>
             document.getElementById("ex")?.addEventListener("click", () => {
-                document.getElementById("experience")?.scrollIntoView({ behavior: "smooth" });
+                document
+                    .getElementById("experience")
+                    ?.scrollIntoView({ behavior: "smooth" });
             });
         </script>
     </RightSideIcon>
     <RightSideIcon id="ed">
-        <Education2/>
+        <Education2 />
         <script>
-            document.getElementById("ed")?.addEventListener("click", ()=> {
-                document.getElementById("education")?.scrollIntoView({ behavior: "smooth" })
-            })
+            document.getElementById("ed")?.addEventListener("click", () => {
+                document
+                    .getElementById("education")
+                    ?.scrollIntoView({ behavior: "smooth" });
+            });
         </script>
     </RightSideIcon>
     <RightSideIcon id="ss">
-        <Mind/>
+        <Mind />
         <script>
-            document.getElementById("ss")?.addEventListener("click", ()=>{
-                document.getElementById("soft")?.scrollIntoView({behavior: "smooth"})
-            })
+            document.getElementById("ss")?.addEventListener("click", () => {
+                document
+                    .getElementById("soft")
+                    ?.scrollIntoView({ behavior: "smooth" });
+            });
         </script>
     </RightSideIcon>
 </nav>
