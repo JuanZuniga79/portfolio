@@ -4,6 +4,7 @@ import RightSideIcon from "./RightSideIcon.astro";
 import TArrow from "../assets/icons/TArrow.astro";
 import Education2 from "../assets/icons/Education2.astro";
 import Mind from "../assets/icons/Mind.astro";
+import Core from "../assets/icons/Core.astro";
 ---
 
 <nav class="flex flex-col gap-y-2">
@@ -19,12 +20,16 @@ import Mind from "../assets/icons/Mind.astro";
     <RightSideIcon id="ss">
         <Mind />
     </RightSideIcon>
+    <RightSideIcon id="hs">
+        <Core />
+    </RightSideIcon>
     <script>
         const sections: { key: string; val: string }[] = [
             { key: "toTop", val: "" },
             { key: "ex", val: "experience" },
             { key: "ed", val: "education" },
             { key: "ss", val: "soft" },
+            { key: "hs", val: "hard" },
         ];
         document.addEventListener("astro:page-load", () => {
             sections.map((item) => {

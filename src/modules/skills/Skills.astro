@@ -1,22 +1,66 @@
 ---
-import getSoftSkills from "../../core/data/softSkills";
+import getSoftSkills from "./data/softSkills";
+import getHardSkills from "./data/hardSkills";
 import Section from "../../core/components/Section.astro";
-interface Props{
-    lang: string
+import Element from "./components/Element.astro";
+interface Props {
+    lang: string;
 }
-const {lang} = Astro.props
-const skills = getSoftSkills(lang)
+const { lang } = Astro.props;
+const soft = getSoftSkills(lang);
+const hard = getHardSkills(lang);
 ---
+
 <Section id="soft" title="Soft Skills">
     <ul class="grid grid-cols-5 gap-4 w-full h-fit">
-        {skills.map((item)=> (
-            <li class="border-2 flex flex-col h-full gap-y-2 rounded-xl list-none p-4 bg-gray-100 bg-opacity-50 backdrop-blur-md
-                    dark:bg-slate-800 dark:border-slate-600 dark:bg-opacity-60">
-                <h3 class="capitalize text-lg italic font-semibold">{item.name}</h3>
-                <p class="text-sm">
-                    {item.description}
-                </p>
-            </li>
-        ))}
+        {soft.map((item) => <Element item={item} />)}
     </ul>
+</Section>
+<Section id="hard" title="Hard Skills">
+    <div class="flex flex-col gap-5 w-full">
+        {
+            hard.map((item) => (
+                <>
+                    <h3 class="text-xl ml-4 font-semibold capitalize">
+                        {item.section}
+                    </h3>
+                    <ul class="grid grid-cols-5 gap-4 w-full h-fit">
+                        {item.elements.map((element) => (
+                            <li
+                                class="border-2 flex flex-col h-full gap-y-1 rounded-xl list-none p-4 bg-gray-100 bg-opacity-50 backdrop-blur-md
+                    dark:bg-slate-800 dark:border-slate-600 dark:bg-opacity-60 text-sm"
+                            >
+                                <h4 class="text-base italic font-semibold">{element.name} {element.version}</h4>
+                                <p>
+                                    {lang === "en" ? "From": "Desde"} 
+                                    {element.from}
+                                </p>
+                                <div class="flex flex-col items-center gap-y-2">
+                                    <p class="w-full text-left">
+                                        {lang === "en" ? "Activity Level" : "Nivel de Actividad"}:
+                                    </p>
+                                    <div class="flex items-start gap-x-[1px] w-full h-5 rounded-xl overflow-hidden">
+                                        <figure class="bg-red-500 w-[10%] h-full"/>
+                                        <figure class="bg-red-500 w-[10%] h-full"/>
+                                        <figure class="bg-red-500 w-[10%] h-full"/>
+                                        <figure class="bg-amber-600 w-[10%] h-full"/>
+                                        <figure class="bg-amber-600 w-[10%] h-full"/>
+                                        <figure class="bg-amber-400 w-[10%] h-full"/>
+                                        <figure class="bg-amber-400 w-[10%] h-full"/>
+                                        <figure class="bg-green-500 w-[10%] h-full"/>
+                                        <figure class="bg-green-500 w-[10%] h-full"/>
+                                        <figure class="bg-green-500 w-[10%] h-full"/>
+                                    </div>
+                                <p>
+                                    {lang === "en" ? "Lately" : "Recientemente"} 
+                                    {element.frequency}
+                                </p>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                </>
+            ))
+        }
+    </div>
 </Section>
