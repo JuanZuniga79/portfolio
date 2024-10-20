@@ -1,0 +1,8 @@
+---
+import {getProjects} from "./data/projects"
+interface Props{
+    lang: string
+}
+const {lang} = Astro.props;
+const projects = getProjects(lang);
+---

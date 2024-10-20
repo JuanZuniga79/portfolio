@@ -4,12 +4,14 @@ import Background from "../sections/Background.astro";
 import Aside from "../sections/Aside.astro";
 import RightSide from "../sections/RightSide.astro";
 import Footer from "../sections/Footer.astro";
+import Nav from "../components/Nav.astro";
 interface Props {
 	title: string;
 	lang: "en" | "es";
+	nav?: boolean
 }
 
-const { title, lang } = Astro.props;
+const { title, lang, nav } = Astro.props;
 ---
 
 <!doctype html>
@@ -28,11 +30,12 @@ const { title, lang } = Astro.props;
 	>
 		<Background />
 		<Aside lang={lang} />
-		<main class="col-span-8 flex flex-col gap-y-10 pt-16">
+		<main class="col-span-8 flex flex-col gap-y-10">
+			<Nav lang={lang}/>
 			<slot />
 			<Footer />
 		</main>
-		<RightSide language={lang} />
+		<RightSide language={lang} nav={nav || false}/>
 		<script>
 			document.addEventListener("astro:page-load", () => {
 				const theme = localStorage.getItem("theme");

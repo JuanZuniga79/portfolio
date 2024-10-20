@@ -30,11 +30,13 @@ const hard = getHardSkills(lang);
                                 class="border-2 flex flex-col h-full gap-y-1 rounded-xl list-none p-4 bg-gray-100 bg-opacity-50 backdrop-blur-md
                     dark:bg-slate-800 dark:border-slate-600 dark:bg-opacity-60 text-sm"
                             >
-                                <h4 class="text-base italic font-semibold">
+                                <h4 class="text-base italic font-semibold capitalize">
                                     {element.name} {element.version}
                                 </h4>
                                 <p>
-                                    {lang === "en" ? "Learning from" : "Aprendiendo desde"}
+                                    {lang === "en"
+                                        ? "Learning from"
+                                        : "Aprendiendo desde"}
                                     {element.from}
                                 </p>
                                 <div class="flex flex-col items-center gap-y-2">
@@ -67,11 +69,16 @@ const hard = getHardSkills(lang);
                                         {lang === "en"
                                             ? "Lately"
                                             : "Recientemente"}
-                                        {element.frequency}
+                                        ,{element.frequency}
                                     </p>
                                 </div>
-                                <a href={`/projects/${element.name}`} class="text-indigo-400 underline underline-offset-1 capitalize italic hover:text-indigo-200" >
-                                    {lang === "en" ? "See Projects" : "Ver Projectos"}
+                                <a
+                                    href={`${lang === "es" && "/es"}/projects/${element.name}`}
+                                    class="text-indigo-400 underline underline-offset-1 capitalize italic hover:text-indigo-200"
+                                >
+                                    {lang === "en"
+                                        ? "See Projects"
+                                        : "Ver Projectos"}
                                 </a>
                             </li>
                         ))}

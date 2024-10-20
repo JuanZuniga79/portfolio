@@ -5,8 +5,9 @@ import DayNNite from "../assets/icons/DayNNite.astro";
 import Navigation from "../components/Navigation.astro";
 interface Props {
     language: "es" | "en";
+    nav: boolean
 }
-const { language } = Astro.props;
+const { language, nav } = Astro.props;
 ---
 
 <aside
@@ -17,7 +18,7 @@ const { language } = Astro.props;
             <Language />
         </RightSideIcon>
     </a>
-    <Navigation />
+    {nav && <Navigation />}
     <RightSideIcon id="theme">
         <DayNNite />
         <script>
