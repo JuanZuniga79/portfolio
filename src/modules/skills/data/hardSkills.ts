@@ -34,7 +34,7 @@ const en: IHardSkill[] = [
     ]},
     {section: "Databases", elements: [
         {name: "postgres", version: "16+", frequency: "almost every day", from: "09/2021", activity: 9},
-        {name: "rongodb", version: "", frequency: "only when necessary", from: "04/2023", activity: 4},
+        {name: "mongo", version: "", frequency: "only when necessary", from: "04/2023", activity: 4},
         {name: "redis", version: "", frequency: "only when necessary", from: "06/2023", activity: 4}
     ]}
 ]
