@@ -4,16 +4,17 @@ import RightSideIcon from "../components/RightSideIcon.astro";
 import DayNNite from "../assets/icons/DayNNite.astro";
 import Navigation from "../components/Navigation.astro";
 interface Props {
-    language: "es" | "en";
+    lang: "es" | "en";
     nav: boolean
 }
-const { language, nav } = Astro.props;
+const { lang, nav } = Astro.props;
+const aux = Astro.url.pathname
 ---
 
 <aside
     class="w-[5%] h-dvh fixed top-0 right-0 flex flex-col justify-between items-center py-5"
 >
-    <a href={language === "en" ? "/es" : "/"}>
+    <a href={`${lang === "en" ? "":"/es"}${aux}`}>
         <RightSideIcon id="language">
             <Language />
         </RightSideIcon>

@@ -35,7 +35,7 @@ const { title, lang, nav } = Astro.props;
 			<slot />
 			<Footer />
 		</main>
-		<RightSide language={lang} nav={nav || false}/>
+		<RightSide lang={lang} nav={nav || false}/>
 		<script>
 			document.addEventListener("astro:page-load", () => {
 				const theme = localStorage.getItem("theme");

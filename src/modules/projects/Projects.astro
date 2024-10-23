@@ -1,8 +1,14 @@
 ---
 import {getProjects} from "./data/projects"
+import Project from "./components/Project.astro";
 interface Props{
     lang: string
 }
 const {lang} = Astro.props;
 const projects = getProjects(lang);
 ---
+<ul class="grid grid-cols-4 gap-10 w-full h-fit">
+    {projects.map((item)=>(
+        <Project project={item} lang={lang}/>
+    ))}
+</ul>

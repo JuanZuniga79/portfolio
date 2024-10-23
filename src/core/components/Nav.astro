@@ -4,18 +4,19 @@ interface Props{
 }
 const {lang} = Astro.props
 const nav: { label: string; path: string }[] = [
+    { label: "Home", path: "/"},
     { label: "Projects", path: "/projects" },
 ];
 ---
 
 <nav class="py-5 px-10">
-    <ul class="flex items-center justify-between">
+    <ul class="flex items-center justify-around">
         {
             nav.map((item) => (
                 <li>
                     <a
                         class="w-full h-full px-4 py-2 rounded-xl underline underline-offset-2 hover:no-underline hover:bg-indigo-200 dark:hover:bg-indigo-600"
-                        href={`${lang === "es" ? "/es/":"/"}projects/`}
+                        href={`${lang === "es" ? "/es":""}${item.path}`}
                     >
                         {item.label}
                     </a>

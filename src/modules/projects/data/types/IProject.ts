@@ -1,5 +1,3 @@
-import type IMDContent from "../../../../core/data/types/IMDContent";
-
 export interface ITechnologies{
     name: string
     icon: any
@@ -13,8 +11,12 @@ export interface ICollaborators{
 export default interface IProject{
     name: string
     technologies: ITechnologies[]
+    public: boolean,
     repository?: string
-    collaborators: ICollaborators[]
-    content: IMDContent
-    documentation: string
+    cover: string
+    collaborators?: ICollaborators[]
+    priority: number
+    size: "big" | "medium" | "small"
+    status: boolean
+    id: number
 }
