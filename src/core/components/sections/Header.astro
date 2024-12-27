@@ -1,0 +1,12 @@
+---
+import getHeaderItems from "../../services/getHeaderItems";
+import Nav from "@core/components/island/Nav"
+const lang = Astro.currentLocale!;
+const data = await getHeaderItems(lang);
+---
+<header class="bg-white/60 z-10 backdrop-blur-sm border-b-2 border-b-slate-100 px-[15%] shadow-lg shadow-slate-100 py-2">
+    <h1 class="select-none">Juan Zuniga</h1>
+    <nav class="flex items-center justify-evenly">
+      <Nav client:only data={data} />
+    </nav>
+</header>

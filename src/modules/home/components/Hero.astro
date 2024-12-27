@@ -1,0 +1,23 @@
+---
+import ownerData from "../../../core/data/ownerData";
+import {Image} from "astro:assets";
+import Button from "./hero/Button.astro";
+const lang = Astro.currentLocale!;
+//Content
+const resume = lang === "en" ? "Resume" : "Resumen";
+const contact = lang === "en" ? "Contact" : "Contacta me";
+---
+<section id="hero" class="w-dvw min-h-dvh flex items-center justify-center relative">
+    <div class="w-fit h-fit flex flex-col items-center">
+        <Image src="https://avatars.githubusercontent.com/u/184788646?v=4" alt="Juan Zuniga Avatar"
+               width={400} height={400} class={"w-52 h-52 rounded-full border-2 border-slate-50 " +
+          "grayscale hover:grayscale-0 transition-all duration-500 ease-linear"} />
+        <h3 class="font-light text-lg mt-6 italic">Hi!, I'm {ownerData.firstName} {ownerData.lastName}</h3>
+        <h2 class="font-bold text-5xl -mt-2">{ownerData.profession}</h2>
+        <div class="flex items-center justify-evenly w-full mt-10">
+            <Button href="" label={resume} special/>
+            <Button href="#contact" label={contact} />
+        </div>
+    </div>
+    <div class="absolute w-[70%] border-b-2 border-b-slate-200 bottom-1"/>
+</section>

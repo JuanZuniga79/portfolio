@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: "Bellota", serif;
+    width: 100dvw;
+    height: 100dvh;
+    scroll-behavior: smooth;
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@layer base {
+  :root {
+        --radius: 0.5rem;
+    }
+}
