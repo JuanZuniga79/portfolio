@@ -1,6 +1,11 @@
 ---
-import RootLayout from '@core/layouts/RootLayout.astro';
+import RootLayout from '../core/layouts/RootLayout.astro';
+import Hero from "../modules/home/components/Hero.astro";
+import Services from "../modules/home/components/Services.astro";
+import Contact from "../modules/home/components/Contact.astro";
 ---
-
 <RootLayout title="JZ Portfolio">
+    <Hero/>
+    <Services/>
+    <Contact/>
 </RootLayout>

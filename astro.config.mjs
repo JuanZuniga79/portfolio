@@ -21,10 +21,9 @@ export default defineConfig({
   base: ".",
   i18n: {
     locales: ["es", "en"],
-    defaultLocale: "es",
+    defaultLocale: "en",
     routing: {
       redirectToDefaultLocale: true,
-      prefixDefaultLocale: true,
       fallbackType: "redirect",
       strategy: "pathname"
     },
@@ -33,6 +32,7 @@ export default defineConfig({
     svg: true,
     clientPrerender: true
   },
+  output: "static",
   adapter: vercel(),
   integrations: [tailwind(), react()]
 });
