@@ -1,7 +1,29 @@
 ---
 import Section from "@core/layouts/Section.astro"
+import ContactForm from "./island/ContactForm";
 const lang = Astro.currentLocale!;
 const title = lang === "en" ? "Contact" : "Contacto";
+const subtitle = lang === "en" ? "Get in touch" : "Contacta me";
+const description = lang === "en" ?
+    "Have a project in mind? Looking to collaborate? Feel free to reach out using the form." :
+    "¿Tienes un proyecto en mente? ¿Quieres colaborar? No dudes en comunicarte conmigo mediante el formulario.";
+const extra = lang === "en" ? "You can also reach me at:" : "Tambien puedes contactarme por:"
+const email = "jw.juanzuniga@gmail.com"
 ---
 <Section id="contact" title={title}>
+    <div class="px-12 grid grid-cols-2 gap-x-16">
+        <article class="flex flex-col gap-y-10">
+            <h4 class="text-3xl italic">{subtitle}</h4>
+            <div class="pl-6 flex flex-col gap-y-4">
+                <p class="text-wrap">{description}</p>
+                <p>
+                    {extra}
+                    <a href={`mailto:${email}`} class="cursor-pointer hover:underline hover:text-blue-500">
+                        {email}
+                    </a>
+                </p>
+            </div>
+        </article>
+        <ContactForm client:only lang={lang} />
+    </div>
 </Section>
