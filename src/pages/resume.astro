@@ -1,0 +1,12 @@
+---
+import RootLayout from "@/core/layouts/RootLayout.astro"
+import ResumeLayout from "../modules/resume/layout/ResumeLayout.astro";
+import Profile from "../modules/resume/components/Profile.astro";
+const lang = Astro.currentLocale!;
+const title = lang === "en" ? "Resume" : "Resumen";
+---
+<RootLayout title={title}>
+    <ResumeLayout>
+        <Profile/>
+    </ResumeLayout>
+</RootLayout>

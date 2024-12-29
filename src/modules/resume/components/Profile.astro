@@ -1,0 +1,38 @@
+---
+import {Image} from "astro:assets"
+import Portfolio from "@core/assets/svg/portfolio.svg"
+import Location from "@core/assets/svg/location.svg"
+import Linkedin from "@core/assets/svg/linkedin.svg"
+const profile = 'https://avatars.githubusercontent.com/u/184788646?v=4'
+const lang = Astro.currentLocale!;
+const able = lang === 'en' ? 'Open to work' : "Disponible";
+const contact = lang === 'en' ? 'Connect with me' : 'Contacta me'
+---
+<div class="flex flex-col gap-y-4 justify-center items-center h-fit w-1/2 px-2 py-5">
+    <Image src={profile} alt="Juan Zuniga Avatar" width={400} height={400} class="w-36 h-36 rounded-full border-2"/>
+    <h2 class="text-4xl font-bold">Juan Camilo Zuniga</h2>
+    <div class="border-2 rounded-3xl border-green-400 px-4 py-1 flex items-center justify-evenly gap-x-5">
+        <figure class="w-3 h-3 rounded-full bg-green-500"/>
+        <span class="text-green-500">{able}</span>
+    </div>
+    <div class="flex items-center justify-evenly gap-4 flex-wrap w-full">
+        <a href="https://igdsas.com/" target="_blank" class="flex items-center gap-1.5 w-fit">
+            <figure class="w-5 h-5">
+                <Portfolio />
+            </figure>
+            <span class="italic text-sm font-light">IGD S.A.S</span>
+        </a>
+        <div class="flex items-center gap-1.5 w-fit">
+            <figure class="w-5 h-5">
+                <Location />
+            </figure>
+            <span class="italic text-sm font-light">Santa Marta/Colombia</span>
+        </div>
+        <a href="https://www.linkedin.com/in/zunigajuan7/" target="_blank" class="flex items-center gap-1.5 w-fit">
+            <figure class="w-5 h-5">
+                <Linkedin/>
+            </figure>
+            <span class="italic text-sm font-light">{contact}</span>
+        </a>
+    </div>
+</div>
