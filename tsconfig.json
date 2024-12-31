@@ -13,7 +13,8 @@
       "@/*": ["./src/*"],
       "@core/*": ["./src/core/*"],
       "@home/*": ["./src/modules/home/*"],
-      "@resume/*": ["./src/modules/resume/*"]
+      "@resume/*": ["./src/modules/resume/*"],
+      "@about/*": ["./src/modules/about/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"

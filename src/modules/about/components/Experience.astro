@@ -1,0 +1,21 @@
+---
+import Section from "@core/layouts/Section.astro"
+import TimelineContainer from "@core/components/timeline/TimelineContainer.astro";
+import TimelineItem from "@core/components/timeline/TimelineItem";
+import experience from "@about/data/experience"
+const lang = Astro.currentLocale!;
+const title = lang === 'en' ? "Experience" : "Experiencia";
+---
+<Section id="experience" title={title}>
+    <TimelineContainer>
+        {experience(lang).map((experience, index) => (
+            <TimelineItem client:load index={index} data={experience}>
+                {experience.technologies.map((technology) => (
+                    <figure class="px-3 py-1 bg-blue-400 text-white rounded-2xl text-sm">
+                        <span>{technology}</span>
+                    </figure>
+                ))}
+            </TimelineItem>
+        ))}
+    </TimelineContainer>
+</Section>
