@@ -1,7 +1,7 @@
 import {Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarTrigger} from "@core/components/ui/menubar.tsx";
 import type IHeaderItems from "@core/types/IHeaderItems.ts";
 
-export default function Nav({data}: {data: IHeaderItems[]}){
+export default function Nav({data, lang}: {data: IHeaderItems[], lang: string}){
   return(
     <Menubar className='border-0 shadow-none bg-transparent'>
       {data.map((item:IHeaderItems, index)=>(
@@ -15,7 +15,7 @@ export default function Nav({data}: {data: IHeaderItems[]}){
             <MenubarContent>
               {item.subMenu.map((subItem:IHeaderItems, index)=>(
                 <MenubarItem key={index} className='hover:bg-blue-500 hover:text-white focus:bg-blue-500 focus:text-white'>
-                  <a href={`${item.url}/${subItem.url}`} className='w-full cursor-pointer'>
+                  <a href={`${lang}${item.url}/${subItem.url}`} className='w-full cursor-pointer'>
                     {subItem.label}
                   </a>
                 </MenubarItem>
