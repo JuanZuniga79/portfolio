@@ -1,0 +1,14 @@
+---
+import ResumeSection from "../layout/ResumeSection.astro"
+import {experience} from '../data/resume'
+import Card from "./Card/Card.astro";
+const lang = Astro.currentLocale!;
+const title = lang === 'en' ? "Experience" : "Experiencia";
+---
+<ResumeSection title={title}>
+    <ul>
+        {experience(lang).map((item, index) => (
+            <Card data={item}/>
+        ))}
+    </ul>
+</ResumeSection>

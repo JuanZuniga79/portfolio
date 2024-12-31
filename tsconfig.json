@@ -12,7 +12,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "@core/*": ["./src/core/*"],
-      "@home/*": ["./src/modules/home/*"]
+      "@home/*": ["./src/modules/home/*"],
+      "@resume/*": ["./src/modules/resume/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"

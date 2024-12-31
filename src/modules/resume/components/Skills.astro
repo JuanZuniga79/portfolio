@@ -1,0 +1,28 @@
+---
+import ResumeSection from "../layout/ResumeSection.astro"
+import {skillsList, skills} from "../data/skills"
+const lang = Astro.currentLocale!;
+const title = lang === "en" ? "Skills" : "Habilidades";
+---
+<ResumeSection title={title}>
+    <ul class="flex flex-col gap-y-8">
+        {skillsList.map((skill, index) => (
+            <>
+                <li class="grid grid-cols-4 items-center">
+                    <h5 class="font-semibold capitalize">{skill}</h5>
+                    <ul class="col-span-3 flex items-center justify-evenly gap-2 flex-wrap">
+                        {skills(skill).map((skill, index) => (
+                            <li class="px-2 py-1 rounded-2xl whitespace-nowrap bg-white border-2 border-gray-200
+                                text-sm">
+                                {skill}
+                            </li>
+                        ))}
+                    </ul>
+                </li>
+                {index !== skillsList.length-1 && (
+                    <figure class="w-full h-[2px] bg-gray-200"/>
+                )}
+            </>
+        ))}
+    </ul>
+</ResumeSection>

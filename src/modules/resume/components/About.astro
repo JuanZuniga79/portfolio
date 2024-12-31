@@ -1,0 +1,11 @@
+---
+import ResumeSection from "../layout/ResumeSection.astro"
+const lang = Astro.currentLocale!;
+const title = lang === 'en' ? "About Me" : "Sobre Mi";
+import {about} from "../data/resume"
+---
+<ResumeSection title={title} >
+    <p class="text-left text-wrap whitespace-pre-line">
+        {about(lang)}
+    </p>
+</ResumeSection>

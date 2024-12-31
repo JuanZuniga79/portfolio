@@ -1,0 +1,25 @@
+---
+import type ICard from "../../types/ICard";
+interface Props{
+    data: ICard,
+    row?: boolean
+}
+const {data, row} = Astro.props;
+const lang = Astro.currentLocale!;
+const done = lang === "en" ? "Done" : "Terminado";
+const currently = lang === "en" ? "In Course" : "En Progreso"
+---
+<li class="w-full h-fit px-4 py-2 border-2 border-gray-200 bg-white rounded-2xl font-light relative">
+    <figure class={`absolute -top-4 -right-4 px-4 py-1.5 rounded-2xl z-10 
+        ${data.status ? "bg-green-600 text-green-100" : "bg-amber-600 text-amber-100"}`}>
+        {data.status ? done : currently}
+    </figure>
+    <h4 class="text-xl font-bold">{data.title}</h4>
+    <h5>{data.subtitle}</h5>
+    <span>{data.from} - {data.until}</span>
+    <ul class={`pl-8 ${row ? 'grid grid-cols-4 gap-2 list-none' : 'list-disc'}`}>
+        {data.details.map(detail => (
+            <li>{detail}</li>
+        ))}
+    </ul>
+</li>

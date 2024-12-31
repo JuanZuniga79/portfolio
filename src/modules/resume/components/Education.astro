@@ -1,0 +1,23 @@
+---
+import ResumeSection from "../layout/ResumeSection.astro"
+import {education} from "../data/education";
+import {certificates} from "../data/certificates";
+import Card from "./Card/Card.astro";
+const lang = Astro.currentLocale!;
+const title = lang === "en" ? "Education" : "Educacion";
+const title2 = lang === "en" ? "Certificates" : "Certificados";
+---
+<ResumeSection title={title}>
+    <ul class="flex flex-col gap-y-4">
+        {education(lang).map((item) => (
+            <Card data={item}/>
+        ))}
+    </ul>
+</ResumeSection>
+<ResumeSection title={title2}>
+    <ul class="flex flex-col gap-y-4">
+        {certificates.map((item) => (
+            <Card data={item} row/>
+        ))}
+    </ul>
+</ResumeSection>
