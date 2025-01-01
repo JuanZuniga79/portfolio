@@ -1,0 +1,24 @@
+---
+const lang = Astro.currentLocale!;
+import Linkedin from "@core/assets/svg/linkedin.svg"
+import Github from "@core/assets/svg/github.svg"
+import Gitlab from "@core/assets/svg/gitlab.svg"
+const powered = lang === 'en' ? 'Powered with love by' : "Desarrollada con amor por"
+const contact = [
+    {label: Linkedin, href: "https://www.linkedin.com/in/juanzuniga79/"},
+    {label: Github, href: "https://github.com/JuanZuniga79"},
+    {label: Gitlab, href: "https://gitlab.com/JuanZuniga79"},
+]
+---
+<footer class="border-t-2 border-b-slate-100 px-[15%] py-4 flex items-center justify-between">
+    <p class="font-light">{powered} <span class="italic">Rusted Cor</span></p>
+    <ul class="flex items-center w-fit gap-x-4">
+        {contact.map((item) => (
+            <li class="w-fit h-fit">
+                <a href={item.href} target="_blank" rel="noopener noreferrer">
+                    <item.label class='w-6 h-6'/>
+                </a>
+            </li>
+        ))}
+    </ul>
+</footer>
