@@ -35,7 +35,7 @@ export default function TimelineItem({index, data, children, lang}:Props){
                      <figure className='w-5 h-5 border-4 border-sky-200 rounded-full bg-blue-400'/>
                  </>
              )}
-             <div className='bg-white dark:bg-gray-800 border-[1px] rounded-lg relative w-[45%]'>
+             <div className='bg-white dark:bg-gray-800 border-[1px] rounded-lg relative w-[45%] text-sm'>
                  <figure
                      className={` absolute -top-4 -right-4 px-3 py-1.5 rounded-2xl text-white
                             ${data.status ? 'bg-green-800':'bg-amber-800'}
