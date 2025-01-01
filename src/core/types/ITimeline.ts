@@ -4,4 +4,5 @@ export interface ITimelineCard{
     subtitleIcon: string;
     date: Date[];
     description: string[];
+    status: boolean;
 }

@@ -1,0 +1,21 @@
+---
+import Section from "@core/layouts/Section.astro"
+import TimelineContainer from "@core/components/timeline/TimelineContainer.astro"
+import TimelineItem from "@core/components/timeline/TimelineItem"
+const lang = Astro.currentLocale!;
+const title = lang === 'en' ? "Education" : "Educacion"
+import education from "@about/data/education"
+---
+<Section id="education" title={title}>
+    <TimelineContainer>
+        {education(lang).map((education, index) => (
+            <TimelineItem data={education} index={index} client:load lang={lang} >
+                {education.technologies.map((technology) => (
+                    <figure class="px-3 py-1 bg-blue-400 text-white rounded-2xl text-sm">
+                        <span>{technology}</span>
+                    </figure>
+                ))}
+            </TimelineItem>
+        ))}
+    </TimelineContainer>
+</Section>

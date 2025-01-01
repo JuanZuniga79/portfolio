@@ -1,9 +1,9 @@
-import type IExperienceTimelineCard from "@/modules/about/types/IExperience.ts";
+import type IExperienceTimelineCard from "@about/types/IExperience.ts";
 import Portfolio from "@core/assets/svg/portfolio.svg"
 const portfolioSRC = Portfolio.src;
 
 const en: IExperienceTimelineCard[] = [
-    {title: "FullStack Junior Developer", subtitle: "IGD S.A.S", subtitleIcon: portfolioSRC,
+    {title: "FullStack Junior Developer", subtitle: "IGD S.A.S", subtitleIcon: portfolioSRC, status: true,
         date: [new Date("2021/01/01"), new Date("2023/12/31")],
         description: [
             "Successfully upgraded a core project for my company and am currently leading its migration to modern technologies.",
@@ -12,7 +12,7 @@ const en: IExperienceTimelineCard[] = [
         ],
         technologies: ["React", "ASP.NET Core", "Sprint Boot 3", "Nest", "FastAPI"]
     },
-    {title: "FullStack Semi-Senior Developer", subtitle: "IGD S.A.S", subtitleIcon: portfolioSRC,
+    {title: "FullStack Semi-Senior Developer", subtitle: "IGD S.A.S", subtitleIcon: portfolioSRC, status: false,
         date: [new Date("2024/01/01"), new Date(Date.now())],
         description: [
             "Independently assigned to maintain, grow, and develop a significant project, demonstrating my ability to deliver results without senior supervision.",
@@ -21,7 +21,7 @@ const en: IExperienceTimelineCard[] = [
     }
 ]
 const es: IExperienceTimelineCard[] = [
-    {title: "Desarrollador FullStack Junior", subtitle: "IGD S.A.S", subtitleIcon: portfolioSRC,
+    {title: "Desarrollador FullStack Junior", subtitle: "IGD S.A.S", subtitleIcon: portfolioSRC, status: en[0].status,
         date: [new Date("2021/01/01"), new Date("2023/12/31")],
         description: [
             "Actualicé con éxito un proyecto central de mi empresa y actualmente lidero su migración a tecnologías modernas.",
@@ -30,7 +30,7 @@ const es: IExperienceTimelineCard[] = [
         ],
         technologies: ["React", "ASP.NET Core", "Sprint Boot 3", "Nest", "FastAPI"]
     },
-    {title: "Desarrollador FullStack Semi-Senior", subtitle: "IGD S.A.S", subtitleIcon: portfolioSRC,
+    {title: "Desarrollador FullStack Semi-Senior", subtitle: "IGD S.A.S", subtitleIcon: portfolioSRC, status: en[1].status,
         date: [new Date("2024/01/01"), new Date(Date.now())],
         description: [
             "Asignado de forma independiente para mantener, desarrollar y hacer crecer un proyecto importante, demostrando mi capacidad para entregar resultados sin supervisión senior.",

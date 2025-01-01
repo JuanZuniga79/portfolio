@@ -1,9 +1,11 @@
 ---
 import RootLayout from "@core/layouts/RootLayout.astro"
 import Experience from "@about/components/Experience.astro"
+import Education from "@about/components/Education.astro"
 const lang = Astro.currentLocale!;
 const title = lang === 'en' ? 'About' : "Sobre Mi";
 ---
 <RootLayout title={title}>
     <Experience/>
+    <Education/>
 </RootLayout>

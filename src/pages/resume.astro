@@ -1,12 +1,12 @@
 ---
-import RootLayout from "@/core/layouts/RootLayout.astro"
-import ResumeLayout from "../modules/resume/layout/ResumeLayout.astro";
-import Profile from "../modules/resume/components/Profile.astro";
-import About from "../modules/resume/components/About.astro";
-import Experience from "../modules/resume/components/Experience.astro";
-import Skills from "../modules/resume/components/Skills.astro";
-import Education from "../modules/resume/components/Education.astro";
-import Projects from "../modules/resume/components/Projects.astro";
+import RootLayout from "@core/layouts/RootLayout.astro"
+import ResumeLayout from "@resume/layout/ResumeLayout.astro";
+import Profile from "@resume/components/Profile.astro";
+import About from "@resume/components/About.astro";
+import Experience from "@resume/components/Experience.astro";
+import Skills from "@resume/components/Skills.astro";
+import Education from "@resume/components/Education.astro";
+import Projects from "@resume/components/Projects.astro";
 const lang = Astro.currentLocale!;
 const title = lang === "en" ? "Resume" : "Resumen";
 ---

@@ -9,11 +9,23 @@ interface Props{
     index:number;
     data: ITimelineCard
     children: ReactNode
+    lang: string
 }
 
-export default function TimelineItem({index, data, children}:Props){
+export default function TimelineItem({index, data, children, lang}:Props){
 
     const [open, setOpen] = useState<boolean>(false);
+
+    const formatDate = (date: Date) => {
+        return new Intl.DateTimeFormat(lang, { dateStyle: 'long' }).format(date);
+    };
+
+    const getStatus = () => {
+        const {status} = data;
+        const trueValue = lang === 'en' ? 'Finished' : 'Terminado'
+        const falseValue = lang === 'en' ? 'In Course' : 'En Curso'
+        return status ? trueValue : falseValue;
+    }
 
      return (
          <div className={`w-full h-fit flex items-center justify-evenly`}>
@@ -24,6 +36,12 @@ export default function TimelineItem({index, data, children}:Props){
                  </>
              )}
              <div className='bg-white dark:bg-gray-800 border-[1px] rounded-lg relative w-[45%]'>
+                 <figure
+                     className={` absolute -top-4 -right-4 px-3 py-1.5 rounded-2xl text-white
+                            ${data.status ? 'bg-green-800':'bg-amber-800'}
+                        `}>
+                     {getStatus()}
+                 </figure>
                  <div className="relative p-6 flex flex-col gap-5">
                      <AnimatePresence>
                          <motion.div
@@ -44,7 +62,7 @@ export default function TimelineItem({index, data, children}:Props){
                                  <figure className='w-6 h-6 text-blue-500 dark:text-gray-400'>
                                      <Date/>
                                  </figure>
-                                 <span>{data.date[0].toDateString()} - {data.date[1].toDateString()}</span>
+                                 <span>{formatDate(data.date[0])} - {formatDate(data.date[1])}</span>
                              </div>
                          </motion.div>
                          {open && (
@@ -58,7 +76,9 @@ export default function TimelineItem({index, data, children}:Props){
                                  <div className='py-5 w-full flex flex-col gap-y-5'>
                                      <ul className='pl-6'>
                                          {data.description.map((element, index) => (
-                                             <li className='list-disc font-light' key={index}>{element}</li>
+                                             <li className='list-disc font-light whitespace-pre-line' key={index}>
+                                                 {element}
+                                             </li>
                                          ))}
                                      </ul>
                                      <ul className='flex items-center justify-evenly gap-2 flex-wrap'>

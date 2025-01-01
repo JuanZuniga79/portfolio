@@ -1,5 +1,6 @@
 import {Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarTrigger} from "@core/components/ui/menubar.tsx";
 import type IHeaderItems from "@core/types/IHeaderItems.ts";
+import Lang from "@core/assets/react-svg/Lang.tsx";
 
 export default function Nav({data, lang}: {data: IHeaderItems[], lang: string}){
   return(
@@ -24,6 +25,25 @@ export default function Nav({data, lang}: {data: IHeaderItems[], lang: string}){
           )}
         </MenubarMenu>
       ))}
+      <MenubarMenu>
+        <MenubarTrigger className='cursor-pointer p-0 rounded-full w-fit h-fit'>
+          <figure className='w-7 h-7 rounded-full hover:text-blue-500'>
+            <Lang/>
+          </figure>
+        </MenubarTrigger>
+        <MenubarContent>
+          <MenubarItem disabled={lang === ""} className='hover:bg-blue-500 hover:text-white focus:bg-blue-500 focus:text-white'>
+            <a href={window.location.pathname.substring(3)} className='w-full cursor-pointer'>
+              {lang === "en"? "English": "Ingles"}
+            </a>
+          </MenubarItem>
+          <MenubarItem disabled={lang === "/es"} className='hover:bg-blue-500 hover:text-white focus:bg-blue-500 focus:text-white'>
+            <a href={`/es${window.location.pathname}`} className='w-full cursor-pointer'>
+              {lang === "es"? "Spanish": "Español"}
+            </a>
+          </MenubarItem>
+        </MenubarContent>
+      </MenubarMenu>
     </Menubar>
   )
 }

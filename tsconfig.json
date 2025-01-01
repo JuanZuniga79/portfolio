@@ -10,7 +10,6 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
       "@core/*": ["./src/core/*"],
       "@home/*": ["./src/modules/home/*"],
       "@resume/*": ["./src/modules/resume/*"],
