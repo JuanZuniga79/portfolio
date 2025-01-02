@@ -44,7 +44,7 @@ export default function Nav({data, lang}: {data: IHeaderItems[], lang: string}){
             className="hover:bg-blue-500 hover:text-white focus:bg-blue-500 focus:text-white"
           >
             <a
-              href={window.location.pathname.substring(3)}
+              href={window.location.pathname.substring(3).concat(window.location.hash)}
               className="w-full cursor-pointer"
             >
               {lang === "/es" ? "English" : "Ingles"}
@@ -55,7 +55,7 @@ export default function Nav({data, lang}: {data: IHeaderItems[], lang: string}){
             className="hover:bg-blue-500 hover:text-white focus:bg-blue-500 focus:text-white"
           >
             <a
-              href={`/es${window.location.pathname}`}
+              href={`/es${window.location.pathname}${window.location.hash}`}
               className="w-full cursor-pointer"
             >
               {lang === "/es" ? "Spanish" : "Español"}

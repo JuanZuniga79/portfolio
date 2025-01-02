@@ -3,6 +3,7 @@ import RootLayout from "@core/layouts/RootLayout.astro";
 import Experience from "@about/components/Experience.astro";
 import Education from "@about/components/Education.astro";
 import Courses from "./components/Courses.astro";
+import Hobbies from "./components/Hobbies.astro";
 const lang = Astro.currentLocale!;
 const title = lang === "en" ? "About" : "Sobre Mi";
 ---
@@ -11,4 +12,5 @@ const title = lang === "en" ? "About" : "Sobre Mi";
     <Experience />
     <Education />
     <Courses />
+    <Hobbies />
 </RootLayout>
