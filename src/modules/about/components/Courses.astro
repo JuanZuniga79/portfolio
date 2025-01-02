@@ -1,0 +1,25 @@
+---
+import Section from "@core/layouts/Section.astro";
+import TimelineContainer from "@core/components/timeline/TimelineContainer.astro";
+import TimelineItem from "@core/components/timeline/TimelineItem";
+import certificates from "@about/data/certificates";
+const lang = Astro.currentLocale!;
+const title =
+  lang === "en" ? "Courses and Certifications" : "Cursos Y Certificados";
+---
+
+<Section id="courses" title={title}>
+  <TimelineContainer>
+    {
+      certificates.map((course, index) => (
+        <TimelineItem data={course} index={index} client:load lang={lang}>
+          {course.technologies.map((technology) => (
+            <figure class="px-3 py-1 bg-blue-400 text-white rounded-2xl text-sm">
+              <span>{technology}</span>
+            </figure>
+          ))}
+        </TimelineItem>
+      ))
+    }
+  </TimelineContainer>
+</Section>
