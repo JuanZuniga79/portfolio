@@ -1,15 +1,22 @@
 ---
-import Section from "@core/layouts/Section.astro"
+import Section from "@core/layouts/Section.astro";
 import ContactForm from "./island/ContactForm";
+import Linkedin from "@core/assets/svg/linkedin.svg";
+import Mail from "@core/assets/svg/mail.svg";
 const lang = Astro.currentLocale!;
 const title = lang === "en" ? "Contact" : "Contacto";
 const subtitle = lang === "en" ? "Get in touch" : "Contacta me";
-const description = lang === "en" ?
-    "Have a project in mind? Looking to collaborate? Feel free to reach out using the form." :
-    "¿Tienes un proyecto en mente? ¿Quieres colaborar? No dudes en comunicarte conmigo mediante el formulario.";
-const extra = lang === "en" ? "You can also reach me at:" : "Tambien puedes contactarme por:"
-const email = "jw.juanzuniga@gmail.com"
+const description =
+    lang === "en"
+        ? "Have a project in mind? Looking to collaborate? Feel free to reach out using the form."
+        : "¿Tienes un proyecto en mente? ¿Quieres colaborar? No dudes en comunicarte conmigo mediante el formulario.";
+const extra =
+    lang === "en"
+        ? "You can also reach me at:"
+        : "Tambien puedes contactarme por:";
+const email = "wk.juanzuniga@gmail.com";
 ---
+
 <Section id="contact" title={title}>
     <div class="px-12 grid grid-cols-2 gap-x-16">
         <article class="flex flex-col gap-y-10">
@@ -18,10 +25,18 @@ const email = "jw.juanzuniga@gmail.com"
                 <p class="text-wrap">{description}</p>
                 <p>
                     {extra}
-                    <a href={`mailto:${email}`} class="cursor-pointer hover:underline hover:text-blue-500">
-                        {email}
-                    </a>
                 </p>
+                <div class="pl-5 flex items-center gap-x-4">
+                    <a href={`mailto:${email}`} target="_blank">
+                        <Mail class="w-7 h-7" />
+                    </a>
+                    <a
+                        href="https://www.linkedin.com/in/juanzuniga79/"
+                        target="_blank"
+                    >
+                        <Linkedin class="w-7 h-7" />
+                    </a>
+                </div>
             </div>
         </article>
         <ContactForm client:only lang={lang} />
