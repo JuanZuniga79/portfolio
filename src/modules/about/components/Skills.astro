@@ -1,6 +1,48 @@
 ---
 import Section from "@core/layouts/Section.astro";
 import Card from "@core/components/cards/Card.astro";
+import {Image} from "astro:assets"
+import skills from "@about/data/skills"
 const lang = Astro.currentLocale!;
 const title = lang === "en" ? "Skills" : "Habilidades";
+const description = lang === "en" ? "Developed Projects" : "Proyectos Desarrollados"
+const usage = lang === "en" ? "Frecuency" : "Frecuencia"
 ---
+<Section id="skills" title={title}>
+    <ul class="flex items-stretch justify-evenly flex-wrap gap-10">
+        {skills(lang).map((item) => (
+            <li class="py-10 px-8 rounded-2xl border-2 border-gray-200 bg-white w-[360px]">
+                <h3 class="text-2xl font-semibold text-center mb-5 capitalize">{item.title}</h3>
+                <ul class="flex flex-col gap-y-8 mt-8 w-full">
+                    {item.skills.map((skill) => (
+                        <li class="grid grid-cols-4 gap-2 items-center w-full">
+                            <figure class={`w-fit h-fit p-3 flex items-center justify-center rounded-full
+                             ${skill.colors[0]}`}>
+                                <Image src={skill.icon} alt="card logo" class="w-8 h-8"/>
+                            </figure>
+                            <div class="flex flex-col gap-y-1 w-full items-center justify-center col-span-3">
+                                <h4 class="capitalize text-lg font-semibold text-center w-full">{skill.name}</h4>
+                                <span class="font-extralight -mt-2">{description}: {skill.projects}</span>
+                                <div class="w-full flex flex-col gap-y-1 mt-2">
+                                    <div class="w-ful flex items-center justify-between">
+                                        <span class="text-sm font-light">{usage}</span>
+                                        <span class="text-sm font-light">{skill.frequency*10}%</span>
+                                    </div>
+                                    <figure class={`w-full rounded-2xl ${skill.colors[0]} overflow-hidden`}>
+                                        <ul class={`bg-gradient-to-r 
+                                        ${skill.colors[1]} ${skill.colors[2]} 
+                                        flex items-center rounded-2xl h-3`}
+                                            style={{ width: `${skill.frequency * 10}%` }}
+                                        >
+                                            {"\u200B"}
+                                        </ul>
+                                    </figure>
+                                </div>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
+            </li>
+        ))}
+    </ul>
+</Section>

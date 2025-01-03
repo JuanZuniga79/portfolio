@@ -6,6 +6,7 @@ export interface ISkillSection {
 export interface ISkill {
   name: string;
   projects: number;
-  frecuency: number;
+  frequency: number;
   icon: any;
+  colors: string[];
 }
