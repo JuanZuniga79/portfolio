@@ -4,6 +4,7 @@ import Games from "@core/assets/svg/games.svg"
 import Camera from "@core/assets/svg/camera.svg"
 import Basketball from "@core/assets/svg/basketball.svg"
 import Music from "@core/assets/svg/music.svg"
+import Terminal from "@core/assets/svg/terminal.svg"
 
 const en: ICard[] = [
   {
@@ -12,16 +13,18 @@ const en: ICard[] = [
     subtitle: "Explore new worlds through books",
     description:
       "When diving into the world of reading, there is always something new that can be learned from.",
-    class: ["from-blue-700", "to-blue-500"],
-    level: 6
+    class: ["from-blue-50/60", "to-blue-200/60", "from-blue-600", "to-blue-400", "border-blue-300"],
+    level: 6,
+    additional: ["Phylosophy", "Literature", "Software Development", "History"]
   },
   {
     icon: Games,
     title: "Gaming",
     subtitle: "Exploring stories, world and adventures.",
     description: "It helps me release stress through a few minutes of fun.",
-    class: ["from-indigo-700", "to-indigo-500"],
+    class: ["from-indigo-50/60", "to-indigo-200/60", "from-indigo-600", "to-indigo-400", "border-indigo-300"],
     level: 6,
+    additional: ["RPG", "Gatcha", "Adventure", "Action"]
   },
   {
     icon: Camera,
@@ -29,16 +32,18 @@ const en: ICard[] = [
     subtitle: "Capture moments in time",
     description:
       "Whenever I discover a new place, or there is a landscape that I love, I like to take photos of it.",
-    class: ["from-amber-700", "to-amber-500"],
+    class: ["from-amber-50/60", "to-amber-200/60", "from-amber-600", "to-amber-400", "border-amber-300"],
     level: 3,
+    additional: ["Nature", "Urban", "Portraits", "Landscapes"]
   },
   {
     icon: Basketball,
     title: "Basketball",
     subtitle: "I stay fit and disciplined through sport.",
     description: "I'm not the best, but still, I do my best.",
-    class: ["from-purple-700", "to-purple-500"],
+    class: ["from-purple-50/60", "to-purple-200/60", "from-purple-600", "to-purple-400", "border-purple-300"],
     level: 2,
+    additional: ["Teamwork", "Discipline", "Physical Health", "Mental Health"]
   },
   {
     icon: Music,
@@ -46,9 +51,19 @@ const en: ICard[] = [
     subtitle: "I release stress and concentrate through music.",
     description:
       "There is always a time for a song, and there is always a song for the moment.",
-    class: ["from-emerald-700", "to-emerald-500"],
+    class: ["from-emerald-50/60", "to-emerald-200/60", "from-emerald-600", "to-emerald-400", "border-emerald-300"],
     level: 10,
+    additional: ["Rock", "Pop", "Country", "Lo-Fi", "Rap"]
   },
+  {
+    icon: Terminal,
+    title: "Open Source",
+    subtitle: "Contributing to the community",
+    description: "I like to contribute to the community by sharing my knowledge and experiences.",
+    class: ["from-cyan-50/60", "to-cyan-200/60", "from-cyan-600", "to-cyan-400", "border-cyan-300"],
+    level: 7,
+    additional: ["Linux", "Arch Linux", "Qtile", "Git", "GitHub"]
+  }
 ];
 
 const es: ICard[] = [

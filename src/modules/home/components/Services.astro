@@ -2,20 +2,31 @@
 import Section from "@core/layouts/Section.astro";
 import getServices from "../services/getServices";
 const lang = Astro.currentLocale!;
-const title = lang === 'en' ? "Services" : "Servicios";
+const title = lang === "en" ? "Services" : "Servicios";
 const data = await getServices(lang);
 ---
+
 <Section id="services" title={title}>
-    <ul class="flex items-stretch justify-evenly flex-wrap h-full w-full">
-        {data.map((service) => (
-            <li class="w-[400px] px-6 py-12 flex flex-col items-center justify-center bg-gray-800 text-white
-            rounded-3xl">
-                <figure class="w-12 h-12">
-                    <service.icon/>
-                </figure>
-                <h4 class="text-3xl font-semibold text-center">{service.label}</h4>
-                <span class="text-base text-center font-light">{service.description}</span>
-            </li>
-        ))}
+    <ul
+        class="flex items-stretch justify-evenly flex-wrap gap-10 h-full w-full"
+    >
+        {
+            data.map((service) => (
+                <li
+                    class="w-[400px] px-6 py-12 flex flex-col items-center justify-center bg-gray-800 text-white
+            rounded-3xl"
+                >
+                    <figure class="w-12 h-12">
+                        <service.icon />
+                    </figure>
+                    <h4 class="text-3xl font-semibold text-center">
+                        {service.label}
+                    </h4>
+                    <span class="text-base text-center font-light">
+                        {service.description}
+                    </span>
+                </li>
+            ))
+        }
     </ul>
 </Section>

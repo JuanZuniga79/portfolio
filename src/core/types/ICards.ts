@@ -7,6 +7,7 @@ export interface ICard {
   onClick?: () => void;
   buttonText?: string;
   class: string[]
+  additional?: string[]
 }
 
 export interface IBasicCard{
