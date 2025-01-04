@@ -1,0 +1,16 @@
+---
+import RootLayout from "@core/layouts/RootLayout.astro"
+import ProjectsSectionContainer from "./components/ProjectsSectionContainer";
+import Section from "../../core/layouts/Section.astro";
+const lang = Astro.currentLocale!;
+const es = "Projectos"
+const en = "Proyects"
+const title = lang === 'en' ? en : es;
+---
+<RootLayout title={title}>
+    <Section title='' id="projects">
+        <ProjectsSectionContainer lang={lang} client:only="react">
+
+        </ProjectsSectionContainer>
+    </Section>
+</RootLayout>

@@ -45,7 +45,7 @@ const environments: ISkill[] = [
   {name: "nodejs", icon: Nodejs, frequency: 5, projects: 1, colors: [
       "bg-green-300/40", "from-green-300", "to-green-600"
     ]},
-  {name: "bunjs", icon: Bunjs, frequency: 8, projects: 1, colors: [
+  {name: "bun", icon: Bunjs, frequency: 8, projects: 1, colors: [
       "bg-amber-300/40", "from-amber-300", "to-amber-600"
     ]},
   {name: "dotnet", icon: Dotnet, frequency: 7, projects: 1, colors: [

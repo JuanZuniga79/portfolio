@@ -11,7 +11,13 @@ export default function Nav({data, lang}: {data: IHeaderItems[], lang: string}){
             className="cursor-pointer text-base data-[state=open]:bg-blue-500 data-[state=open]:text-white
             hover:bg-blue-500 hover:text-white focus:bg-blue-500 focus:text-white"
           >
-            {item.label}
+            {item.subMenu ? (
+                <span>{item.label}</span>
+            ) : (
+                <a href={item.url}>
+                  {item.label}
+                </a>
+            )}
           </MenubarTrigger>
           {item.subMenu && (
             <MenubarContent>

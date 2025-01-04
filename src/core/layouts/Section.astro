@@ -7,9 +7,11 @@ const {id, title} = Astro.props;
 ---
 <section id={id} class="w-dvw h-fit flex justify-center">
   <div class="w-[70%] h-fit flex flex-col justify-center gap-y-10 border-t-2 border-b-slate-300 py-14">
-      <h3 class="text-4xl font-medium">{title}</h3>
-      <div class="px-5">
-          <slot/>
-      </div>
+    {title && (
+        <h3 class="text-4xl font-medium">{title}</h3>
+    )}
+    <div class="px-5">
+        <slot/>
+    </div>
   </div>
 </section>

@@ -17,6 +17,9 @@ export const esHeaderItems: IHeaderItems[] = [
       { label: "Pasatiempos", url: "#hobbies" },
     ]
   },
+  {
+    label: "Proyectos", url: "/projects"
+  }
 ];
 
 export const enHeaderItems: IHeaderItems[] = [
@@ -36,4 +39,7 @@ export const enHeaderItems: IHeaderItems[] = [
       { label: "Hobbies", url: "#hobbies" },
     ]
   },
+  {
+    label: "Projects", url: "/projects"
+  }
 ];
