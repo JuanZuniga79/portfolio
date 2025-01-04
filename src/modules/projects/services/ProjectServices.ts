@@ -5,7 +5,7 @@ import TypeScript from "@core/assets/svg/typescript.svg"
 import React from "@core/assets/svg/react.svg"
 import Postgres from "@core/assets/svg/postgres.svg"
 import Redux from "@core/assets/svg/redux.svg"
-import Software from "@core/assets/svg/Software.svg"
+import Software from "@core/assets/svg/software.svg"
 import Law from "@core/assets/svg/privacity.svg";
 import Check from "@core/assets/svg/check.svg"
 import Node from "@core/assets/svg/nodejs.svg"
