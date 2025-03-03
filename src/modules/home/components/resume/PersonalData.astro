@@ -1,21 +1,65 @@
 ---
-import Location from '../../assets/icons/Location.astro';
-import PersonalDataItem from './PersonalDataItem.astro';
+import Location from "../../assets/icons/Location.astro";
+import Work from "../../assets/icons/Work.astro";
+import PersonalDataItem from "./PersonalDataItem.astro";
+import Social from "../../assets/icons/Social.astro";
+import GithubIcon from "../../../../core/icons/GithubIcon.astro";
+import Linkedin from "../../assets/icons/Linkedin.astro";
 
-interface Props{
-  lang: string
+interface Props {
+  lang: string;
 }
-const {lang} = Astro.props;
+const { lang } = Astro.props;
 const item1 = lang === "es" ? "Ubicación" : "Location";
 const item2 = lang === "es" ? "Profesión" : "Profession";
+const item2Text = lang === "es" ? "Ingeniero de Sistemas" : "Systems Engineer";
 const item3 = lang === "es" ? "Disponibilidad" : "Availability";
+const item3Text = lang === "es" ? "Tiempo completo" : "Full-time";
 const item4 = lang === "es" ? "Redes Sociales" : "Social Media";
 ---
+
 <div class="grid grid-cols-4 gap-5 w-full col-span-12 h-fit">
-  <PersonalDataItem title={item1} className="bg-blue-600" >
+  <PersonalDataItem title={item1} className="bg-blue-600 min-w-9 h-9">
     <span>Santa Marta - Colombia</span>
     <figure slot="icon" class="w-6 h-6 text-white">
-      <Location/>
+      <Location />
+    </figure>
+  </PersonalDataItem>
+  <PersonalDataItem title={item2} className="bg-indigo-500 min-w-9 h-9">
+    <span>{item2Text}</span>
+    <figure slot="icon" class="w-7 h-7 text-white">
+      <Work />
+    </figure>
+  </PersonalDataItem>
+  <PersonalDataItem title={item3} className="">
+    <span>{item3Text}</span>
+    <figure
+      slot="icon"
+      class="bg-green-600 rounded-full w-4 h-4 justify-self-center animate-pulse"
+    >
+    </figure>
+  </PersonalDataItem>
+  <PersonalDataItem title={item4} className="bg-emerald-500 min-w-9 h-9">
+    <a
+      href="https://github.com/JuanZuniga79"
+      target="_blank"
+      class="rounded-full p-1 hover:bg-indigo-600 hover:text-white text-indigo-600 transition-colors duration-300"
+    >
+      <figure class="w-6 h-6">
+        <GithubIcon />
+      </figure>
+    </a>
+    <a
+      href="https://www.linkedin.com/in/juanzuniga79"
+      target="_blank"
+      class="rounded-full p-1 hover:bg-blue-600 hover:text-white text-blue-600 transition-colors duration-300"
+    >
+      <figure class="w-6 h-6">
+        <Linkedin />
+      </figure>
+    </a>
+    <figure slot="icon" class="w-6 h-6 text-white">
+      <Social />
     </figure>
   </PersonalDataItem>
 </div>

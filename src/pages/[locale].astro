@@ -3,6 +3,7 @@ import PageLayout from "../core/layouts/PageLayout.astro";
 import Hero from "../modules/home/sections/Hero.astro";
 import Resume from "../modules/home/sections/Resume.astro";
 import Projects from "../modules/home/sections/Projects.astro";
+import About from "../modules/home/sections/About.astro";
 const locale = Astro.currentLocale;
 if (!locale) {
     return Astro.redirect("not-found");
@@ -11,6 +12,7 @@ if (!locale) {
 
 <PageLayout lang={locale} title="Juan Zuniga" path="home">
     <Hero lang={locale} />
+    <About />
     <Resume lang={locale} />
     <Projects lang={locale} />
 </PageLayout>

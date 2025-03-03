@@ -1,0 +1,79 @@
+---
+import { Image } from "astro:assets";
+import PersonalData from "../components/resume/PersonalData.astro";
+import WPM from "../components/resume/WPM.astro";
+import profile from "../assets/images/profile2.png";
+import AboutItem from "../components/resume/AboutItem.astro";
+
+const lang = Astro.currentLocale;
+if (!lang) return;
+const about = lang === "es" ? "Acerca de mi" : "About me";
+const phrase =
+  lang === "es"
+    ? "prefiero ser el primero en una aldea, que el segundo en Roma."
+    : "I prefer to be the first in a village, than the second in Rome.";
+const name = lang === "es" ? "Nombre" : "Name";
+const birth = lang === "es" ? "Cumpleaños" : "Birthday";
+const month = lang === "es" ? "Abril" : "April";
+const address = lang === "es" ? "Ubicación" : "Address";
+const phoneNumber = lang === "es" ? "Telefono" : "Celphone";
+const download = lang === "es" ? "Descargar CV" : "Download CV";
+const see = lang === "es" ? "Ver CV" : "See CV";
+---
+
+<section class="grid grid-cols-4 gap-5 w-full">
+  <div class="col-span-4 flex items-center justify-center">
+    <h3 class="uppercase text-4xl font-bold font-serif">{about}</h3>
+  </div>
+  <div class="w-full flex flex-col-reverse gap-5 pt-16">
+    <WPM lang={lang} />
+  </div>
+  <div class="w-full col-span-3 flex flex-col gap-5">
+    <div class="grid grid-cols-4 gap-5">
+      <div class="col-span-3 flex flex-col justify-between">
+        <h4
+          class="first-letter:uppercase first-letter:text-6xl font-light text-2xl italic first-letter:font-mono"
+        >
+          {phrase}
+        </h4>
+        <div class="flex flex-col gap-y-2 w-[45%] text-lg">
+          <AboutItem title={name} content="Juan Camilo Zuñiga" />
+          <AboutItem title={birth} content={`${month} 02, 2001`} />
+          <AboutItem content="Santa Marta/Colombia" title={address} />
+          <div id="email" class="hover:underline cursor-pointer">
+            <AboutItem content="wk.juanzuniga@gmail.com" title="E-Mail"/>
+          </div>
+          <div id="phone" class="hover:underline cursor-pointer">
+            <AboutItem content="+57 3027473264" title={phoneNumber} />
+          </div>
+        </div>
+        <div class="grid grid-cols-3 gap-5">
+          <button id="cv" class="rounded-xl px-5 py-2 text-white uppercase font-mono text-2xl bg-blue-500
+            hover:bg-blue-800 cursor-pointer w-full">
+            {download}
+          </button>
+          <a href={`/${lang}/resume/`} class="rounded-xl px-5 py-2 text-white uppercase font-mono text-2xl bg-indigo-500
+            hover:bg-indigo-800 cursor-pointer w-full">
+            {see}
+          </a>
+        </div>
+      </div>
+      <figure>
+        <Image src={profile} alt="Juan Zuniga photo" class="rounded-2xl" />
+      </figure>
+    </div>
+    <div class="col-span-4">
+      <PersonalData lang={lang} />
+    </div>
+  </div>
+  <script>
+    const phone = document.getElementById("phone");
+    const email = document.getElementById("email");
+    phone?.addEventListener("click", () => {
+      window.open("https://wa.me/+573054725724", "_blank");
+    })
+    email?.addEventListener("click", () => {
+      window.open("mailto:wk.juanzuniga@gmail.com", "_blank");
+    })
+  </script>
+</section>

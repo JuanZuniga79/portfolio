@@ -20,7 +20,7 @@ const projects = 15;
 <div class="flex flex-col gap-y-10 items-end justify-center">
   <section class="flex flex-col gap-y-3">
     <h3 class="text-2xl font-medium font-serif">{data.data.title}</h3>
-    <div class="text-sm font-extralight text-gray-600">
+    <div class="text-base font-extralight text-gray-600">
       <Content />
     </div>
   </section>
@@ -31,14 +31,17 @@ const projects = 15;
     {hireMe}
   </a>
   <div class="grid grid-cols-3 gap-x-1 w-full items-center">
-    <ResumeItem 
-      value={`+${experienceYears} ${lang === "es" ? "Años" : "Years"}`} 
-      description={lang==="es" ? "Experiencia" : "Experience"} />
+    <ResumeItem
+      value={`+${experienceYears} ${lang === "es" ? "Años" : "Years"}`}
+      description={lang === "es" ? "Experiencia" : "Experience"}
+    />
     <ResumeItem
       value={`+${clients}`}
-      description={lang === "es" ? "Clientes" : "Clients"} />
+      description={lang === "es" ? "Clientes" : "Clients"}
+    />
     <ResumeItem
       value={`+${projects}`}
-      description={lang === "es" ? "Proyectos" : "Projects"} />
+      description={lang === "es" ? "Proyectos" : "Projects"}
+    />
   </div>
 </div>

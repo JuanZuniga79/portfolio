@@ -1,9 +1,6 @@
 ---
 import GitHubActivity from "../components/resume/GitHubActivity.astro";
-import WPM from "../components/resume/WPM.astro";
-import Hobbies from "../components/resume/Hobbies.astro";
 import Skills from "./Skills.astro";
-import PersonalData from "../components/resume/PersonalData.astro";
 interface Props {
     lang: string;
 }
@@ -11,9 +8,6 @@ const { lang } = Astro.props;
 ---
 
 <section class="grid grid-cols-12 gap-5">
-    <PersonalData lang={lang} />
     <GitHubActivity lang={lang} />
-    <WPM lang={lang} />
-    <Hobbies lang={lang} />
     <Skills lang={lang} />
 </section>

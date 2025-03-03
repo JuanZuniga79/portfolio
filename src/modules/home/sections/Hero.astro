@@ -3,23 +3,32 @@ import Services from "../components/hero/Services.astro";
 import Resume from "../components/hero/Resume.astro";
 import TitleHero from "../components/hero/TitleHero.astro";
 import profile from "../assets/images/profile.png";
-import {Image} from "astro:assets";
-interface Props{
+import { Image } from "astro:assets";
+interface Props {
     lang: string;
 }
-const {lang} = Astro.props;
+const { lang } = Astro.props;
 ---
+
 <section class="grid grid-cols-4 gap-x-2 w-full min-h-full h-full">
     <Services lang={lang} />
-    <div class="flex flex-col items-center justify-start gap-y-6 col-span-2 h-full">
+    <div
+        class="flex flex-col items-center justify-start gap-y-6 col-span-2 h-full"
+    >
         <TitleHero title="Juan C. Zuniga" />
         <div class="relative flex items-center justify-center w-[79%]">
-            <div class="min-h-[80%] h-[80%] w-[70%] border-2 border-neutral-300 bg-white p-4 rounded-2xl
-                absolute bottom-0 z-0">
+            <div
+                class="min-h-[80%] h-[80%] w-[80%] border-2 border-neutral-300 bg-white p-4 rounded-2xl
+                absolute bottom-0 z-0"
+            >
                 <div class="bg-neutral-200 rounded-2xl w-full min-h-full"></div>
             </div>
-            <Image src={profile} alt="" class="z-[1] h-full pb-[20px] select-none"
-                   width={400} />
+            <Image
+                src={profile}
+                alt=""
+                class="z-[1] h-full pb-[20px] -ml-1 select-none"
+                width={400}
+            />
         </div>
     </div>
     <Resume lang={lang} />
