@@ -1,0 +1,10 @@
+---
+const lang = Astro.currentLocale;
+const title = lang === "es" ? "Experiencia" : "Experience";
+---
+
+<section id="education" class="w-full grid grid-cols-5">
+    <div class="col-span-5 text-5xl font-bold font-serif">
+        <h4 class="uppercase">{title}</h4>
+    </div>
+</section>

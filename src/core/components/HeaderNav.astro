@@ -15,7 +15,7 @@ const en: IHeaderNav[] = [
 const items = lang === "es" ? en : en;
 ---
 <nav class="flex col-span-2 justify-self-center items-center justify-evenly text-sm rounded-3xl transition-all
-     bg-white/70 font-serif w-80 py-1.5 px-5">
+     bg-white font-serif w-80 py-1.5 px-5">
     {items.map((item)=>(
         <a href={`/${lang}${item.path}`}
            class={`rounded-2xl hover:text-gray-900 

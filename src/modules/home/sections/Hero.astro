@@ -16,7 +16,7 @@ const { lang } = Astro.props;
         class="flex flex-col items-center justify-start gap-y-6 col-span-2 h-full"
     >
         <TitleHero title="Juan C. Zuniga" />
-        <div class="relative flex items-center justify-center w-[79%]">
+        <div class="relative flex items-center justify-center w-[100%]">
             <div
                 class="min-h-[80%] h-[80%] w-[80%] border-2 border-neutral-300 bg-white p-4 rounded-2xl
                 absolute bottom-0 z-0"
@@ -26,8 +26,8 @@ const { lang } = Astro.props;
             <Image
                 src={profile}
                 alt=""
-                class="z-[1] h-full pb-[20px] -ml-1 select-none"
-                width={400}
+                class="z-[1] h-full pb-[20px] -ml-1 select-none object-contain"
+                width={600}
             />
         </div>
     </div>

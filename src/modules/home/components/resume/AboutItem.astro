@@ -1,12 +1,16 @@
 ---
-interface Props{
-  title: string,
-  content: string
+interface Props {
+  title: string;
+  content: string;
 }
-const {title, content} = Astro.props;
+const { title, content } = Astro.props;
 ---
 
-<div class="grid grid-cols-3 items-center gap-x-4">
-  <h4 class="font-semibold font-serif">{title}:</h4>
-  <span class="font-light col-span-2 italic">{content}</span>
+<div class="grid grid-cols-5 items-center gap-x-4">
+  <h4
+    class="font-semibold font-serif text-nowrap text-ellipsis overflow-x-hidden col-span-2"
+  >
+    {title}:
+  </h4>
+  <span class="font-light col-span-3 italic">{content}</span>
 </div>
