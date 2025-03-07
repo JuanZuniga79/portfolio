@@ -1,0 +1,31 @@
+---
+import TimelineContainer from "../components/timeline/TimelineContainer.astro";
+import TimelineCard from "../components/timeline/TimelineCard.astro";
+import getEduNExp from "../services/getEduNExp";
+import type ITimeline from "../types/ITimeline";
+
+const lang = Astro.currentLocale;
+if (!lang) return;
+const title =
+    lang === "es" ? "Experiencia y Educación" : "Experience & Education";
+const data = getEduNExp(lang);
+---
+
+<section id="education" class="w-full grid grid-cols-5 gap-y-14">
+    <div class="col-span-5 text-5xl font-bold font-serif">
+        <h4 class="uppercase">{title}</h4>
+    </div>
+    <TimelineContainer>
+        <div
+            class="w-[8px] rounded-2xl h-full bg-neutral-300 absolute -z-10 left-[calc(50%-4px)]"
+        >
+        </div>
+        <div class="w-full h-fit py-4 flex flex-col gap-y-2">
+            {
+                data.map((item: ITimeline, i) => (
+                    <TimelineCard data={item} index={i} lang={lang} />
+                ))
+            }
+        </div>
+    </TimelineContainer>
+</section>

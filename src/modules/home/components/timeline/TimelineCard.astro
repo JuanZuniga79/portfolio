@@ -1,0 +1,54 @@
+---
+import type ITimeline from "../../types/ITimeline";
+import { getDateDiference, dateFormater } from "../../services/dateServices";
+interface Props {
+    lang: string;
+    data: ITimeline;
+    index: number;
+}
+const { data, index, lang } = Astro.props;
+---
+
+<div
+    class={`w-[calc(50%+20px)] flex items-center relative py-2 z-10 bg-inherit container
+    ${index % 2 === 0 ? "place-self-end" : "flex-row-reverse"}`}
+>
+    <figure
+        class="min-w-[40px] h-[40px] bg-white border-[1px] border-neutral-300 rounded-full flex
+        items-center justify-center"
+    >
+    </figure>
+    <figure class="w-16 h-[3px] bg-neutral-300"></figure>
+    <div
+        class="w-full border-[1.5px] border-neutral-300 py-2 rounded-md bg-white shadow-md
+        shadow-neutral-300 px-5 flex flex-col gap-y-2"
+    >
+        <div class="flex items-center justify-between">
+            <h4 class="font-semibold text-lg font-serif">{data.title}</h4>
+            <span class="font-extralight text-xs">
+                {
+                    `${dateFormater(data.start, lang)}${data.end ? ` - ${dateFormater(data.end, lang)}` : ""}`
+                }
+            </span>
+        </div>
+        <span class="text-sm font-light">
+            {data.company.length > 0 && `${data.company} `}
+            {getDateDiference(lang, data.start, data.end)}
+        </span>
+        <blockquote class="font-light text-sm">
+            {data.description}
+        </blockquote>
+        <ul class="list-disc pl-5 text-sm font-light">
+            {data.achievements.map((item) => <li>{item}</li>)}
+        </ul>
+        <ul class="flex items-center gap-2 flex-wrap">
+            {
+                data.technologies.map((item) => (
+                    <li class="font-light px-3 py-0.5 bg-neutral-100 rounded-2xl font-serif text-sm">
+                        {item}
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+</div>
