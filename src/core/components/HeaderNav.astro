@@ -9,7 +9,6 @@ interface Props{
 const {path, lang} = Astro.props;
 const en: IHeaderNav[] = [
     {label: "Home", path: "/"},
-    {label: "Resume", path: "/resume"},
     {label: "Projects", path: "/projects"},
 ]
 const items = lang === "es" ? en : en;
@@ -24,4 +23,7 @@ const items = lang === "es" ? en : en;
             {item.label}
         </a>
     ))}
+    <a href="" class={`rounded-2xl hover:text-gray-900`}>
+        Blog
+    </a>
 </nav>

@@ -1,5 +1,7 @@
 ---
 import type ITimeline from "../../types/ITimeline";
+import Book from "../../assets/icons/Book.astro";
+import Work from "../../assets/icons/Work.astro";
 import { getDateDiference, dateFormater } from "../../services/dateServices";
 interface Props {
     lang: string;
@@ -13,11 +15,14 @@ const { data, index, lang } = Astro.props;
     class={`w-[calc(50%+20px)] flex items-center relative py-2 z-10 bg-inherit container
     ${index % 2 === 0 ? "place-self-end" : "flex-row-reverse"}`}
 >
-    <figure
+    <div
         class="min-w-[40px] h-[40px] bg-white border-[1px] border-neutral-300 rounded-full flex
         items-center justify-center"
     >
-    </figure>
+        <figure class="w-7 h-7 text-blue-600">
+            {data.type === "education" ? <Book /> : <Work />}
+        </figure>
+    </div>
     <figure class="w-16 h-[3px] bg-neutral-300"></figure>
     <div
         class="w-full border-[1.5px] border-neutral-300 py-2 rounded-md bg-white shadow-md

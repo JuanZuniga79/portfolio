@@ -1,50 +1,71 @@
 ---
 import type ISkills from "../../data/Skills";
 import Star from "../../assets/icons/Star.astro";
-interface Props{
-    lang: string
-    item: ISkills[]
-    title: string
-    className?: string
+interface Props {
+    lang: string;
+    item: ISkills[];
+    title: string;
+    bg?: string;
 }
-const {lang, item, title, className} = Astro.props;
-const preferred = lang === "es" ? "Preferencia" : "Preferred"
-const proficient = lang === "es" ? "Competente" : "Proficient"
-const beginner = lang === "es" ? "Principiante" : "Beginner"
-const learning = lang === "es" ? "Aprendiendo" : "Learning"
+const { lang, item, title, bg } = Astro.props;
+const preferred = lang === "es" ? "Preferencia" : "Preferred";
+const proficient = lang === "es" ? "Competente" : "Proficient";
+const beginner = lang === "es" ? "Principiante" : "Beginner";
+const learning = lang === "es" ? "Aprendiendo" : "Learning";
+const frecuency = lang === "es" ? "Frecuencia" : "Frecuency";
+const projects = lang === "es" ? "Proyectos" : "Projects";
 ---
-<div class="rounded-2xl group border-[1px] bg-white border-neutral-200 w-full h-full overflow-hidden">
-    <div class={`${className} h-3 w-full`}/>
-    <div class="w-full h-full p-4 relative flex flex-col gap-y-5">
-        <div class="flex items-center justify-between">
-            <h4 class="text-3xl font-medium">{title}</h4>
-            <div class={`p-2 rounded-full text-white flex group-hover:scale-125 items-center justify-center 
-                ${className} transition-transform duration-300`}>
-                <figure class="w-7 h-7 group-hover:rotate-45 transition-transform duration-300">
-                    <slot/>
-                </figure>
-            </div>
-        </div>
-        <ul class="flex flex-col items-center gap-y-1 list-none w-full h-fit">
-            {item.map((item: ISkills) => (
-                <li class="w-full flex items-center justify-between">
-                    <div class="flex items-center gap-x-1.5">
-                        <span class="capitalize font-light">{item.name}</span>
-                        {item.level > 8 && (
-                            <figure class="w-5 h-5 text-yellow-500">
-                                <Star/>
+
+<div
+    class="border-[1px] border-neutral-200 rounded-2xl p-4 flex flex-col gap-y-8 bg-white"
+>
+    <h4 class="text-2xl font-serif font-semibold text-neutral-800">{title}</h4>
+    <ul class="flex flex-col gap-y-5">
+        {
+            item
+                .sort((a, b) => b.level - a.level)
+                .map((item) => (
+                    <li class="grid grid-cols-6 p-2 items-center">
+                        <div
+                            class={`rounded-full w-10 h-10 flex items-center justify-center ${bg}`}
+                        >
+                            <figure class="w-6 h-6 text-white">
+                                <slot />
                             </figure>
-                        )}
-                    </div>
-                    <span class={`italic font-serif text-sm 
-                        ${item.level > 8 ? "text-yellow-500" : item.level > 6 ? "text-emerald-500" : 
-                            item.level > 4 ? "text-blue-500" : item.level > 2 ? "text-indigo-500" : 
-                            "text-gray-500"}`}>
-                        {item.level > 8 ? preferred : item.level > 6 ? proficient :
-                            item.level > 4 ? "Familiar" : item.level > 2 ? beginner : learning}
-                    </span>
-                </li>
-            ))}
-        </ul>
-    </div>
+                        </div>
+                        <div class="col-span-5 flex flex-col gap-y-1">
+                            <h5 class="uppercase font-serif font-medium text-lg">
+                                {item.name}
+                            </h5>
+                            <div class="flex flex-col w-full">
+                                <div class="flex items-center justify-between">
+                                    <p class="text-sm gap-x-4 flex items-center italic">
+                                        <span>{projects}</span>
+                                        <span>0</span>
+                                    </p>
+                                    <span class="text-sm font-serif italic place-self-end">
+                                        {item.level > 8
+                                            ? preferred
+                                            : item.level > 6
+                                              ? proficient
+                                              : item.level > 4
+                                                ? beginner
+                                                : learning}
+                                    </span>
+                                </div>
+                                <ul
+                                    class={`grid grid-cols-10 h-2 overflow-hidden rounded-2xl bg-neutral-200/50`}
+                                >
+                                    {Array.from({ length: item.level }).map(
+                                        (it, i) => (
+                                            <li class={`w-full ${bg}`} />
+                                        ),
+                                    )}
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                ))
+        }
+    </ul>
 </div>
