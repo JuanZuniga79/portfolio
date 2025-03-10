@@ -19,7 +19,8 @@ import ThemeIcon from "../icons/ThemeIcon.astro";
 <script>
     document.getElementById("language")?.addEventListener("click", () => {
         const lang = document.documentElement.lang === "es" ? "en" : "es";
-        window.location.href = `/${lang}/`;
+        const extra = window.location.pathname.split("/")[2];
+        window.location.href = `/${lang}/${extra}`;
     });
     document.getElementById("theme")?.addEventListener("click", () => {
         const body = document.body;

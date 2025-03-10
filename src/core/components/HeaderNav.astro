@@ -1,6 +1,4 @@
 ---
-import NavItem from "./NavItem.astro";
-import BlogIcon from "../icons/BlogIcon.astro";
 import type IHeaderNav from "../types/IHeaderNav";
 interface Props{
     path: string,
@@ -23,7 +21,7 @@ const items = lang === "es" ? en : en;
             {item.label}
         </a>
     ))}
-    <a href="" class={`rounded-2xl hover:text-gray-900`}>
+    <a href="" class={`rounded-2xl text-gray-900/60 hover:text-gray-900`}>
         Blog
     </a>
 </nav>

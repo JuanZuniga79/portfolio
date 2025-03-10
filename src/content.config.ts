@@ -16,6 +16,7 @@ const homeResume = defineCollection({
   }),
 });
 
+
 const projects = defineCollection({
   loader: glob({ pattern: `**/*.md`, base: "./src/modules/home/content/projects" }),
   schema: z.object({

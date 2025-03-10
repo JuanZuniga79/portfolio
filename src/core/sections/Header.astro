@@ -1,6 +1,6 @@
 ---
 import HeaderNav from "../components/HeaderNav.astro";
-import {Image} from "astro:assets";
+import { Image } from "astro:assets";
 import dark from "../assets/logo/largeDark.svg";
 import FloatingElements from "../components/FloatingElements.astro";
 interface Props {
@@ -11,15 +11,18 @@ const { lang, path } = Astro.props;
 const icon = dark;
 ---
 
-<header id="header"
-  class="sticky top-0 left-0 z-10 w-full flex justify-center transition-opacity border-neutral-300/60
+<header
+  id="header"
+  class="fixed top-0 left-0 z-10 w-full flex justify-center transition-opacity border-neutral-300/60
     backdrop-blur-sm bg-neutral-100/30"
 >
-  <div class="grid grid-cols-4 items-center w-[80%] justify-between select-none py-4">
+  <div
+    class="grid grid-cols-4 items-center w-[80%] justify-between select-none py-4"
+  >
     <figure>
       <Image src={icon} alt="Juan Zuniga Logo" width={70} />
     </figure>
-    <HeaderNav lang={lang} path={path}/>
-    <FloatingElements/>
+    <HeaderNav lang={lang} path={path} />
+    <FloatingElements />
   </div>
 </header>

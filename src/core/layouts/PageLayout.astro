@@ -34,11 +34,11 @@ const { title, lang, path }: Props = Astro.props;
     <body class="bg-neutral-100 w-dvw h-dvh overflow-hidden">
         <div
             id="container"
-            class="flex flex-col items-center h-full overflow-y-auto scrollbar"
+            class="flex flex-col items-center h-dvh overflow-y-auto scrollbar"
         >
             <Header lang={lang} path={path} />
             <main
-                class="flex flex-col w-[80%] min-h-full h-fit relative gap-y-20"
+                class="flex flex-col w-[80%] min-h-full pt-20 h-fit relative gap-y-20"
             >
                 <slot />
                 <Footer lang={lang} />

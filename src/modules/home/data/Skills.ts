@@ -20,8 +20,8 @@ export const backend: ISkills[] = [
 
 export const databases: ISkills[] = [
     { name: "postgres", level: 8 },
-    { name: "sqlite", level: 8 },
-    { name: "sql server", level: 7 },
+    { name: "sql server", level: 8 },
+    { name: "my sql", level: 6 },
     { name: "mongo", level: 4 },
     { name: "redis", level: 4 },
 ]

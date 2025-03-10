@@ -2,8 +2,7 @@
 name: "IGD Plus"
 category: "Software ERP"
 type: "Prototipo funcional para IDG S.A.S"
-skills: ["react 19", "bun", "nextjs 15", "tailwind CSS", "typescript", "HSR","Diseño UI/UX",
- "desarrollo en solitario", "diseñado en solitario"]
+skills: ["react 19", "nextjs 15", "tailwind CSS", "typescript", "HSR"]
 repo: ""
 cover: "https://raw.githubusercontent.com/JuanZuniga79/projects-docs/refs/heads/main/igd-plus/1.png"
 live: ""
