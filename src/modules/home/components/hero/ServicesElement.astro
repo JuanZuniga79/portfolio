@@ -15,9 +15,9 @@ const { title, description } = Astro.props;
         <slot />
       </figure>
     </div>
-    <h4 class="mb-1 text-lg italic font-medium">{title}</h4>
+    <h4 class="mb-1 lg:text-base italic font-medium">{title}</h4>
   </div>
-  <p class="text-base font-extralight text-gray-700 px-2 font-serif">
+  <p class="lg:text-sm xl:text-base font-extralight text-gray-700 px-2 font-serif">
     {description}
   </p>
 </div>

@@ -23,18 +23,18 @@ const item5 = lang === "es" ? "Redes Sociales" : "Social Media";
 <div class="grid grid-cols-5 gap-8 w-full col-span-5 h-fit">
   <PersonalDataItem title={item1} className="min-w-9 h-9">
     <span>Santa Marta - Colombia</span>
-    <figure slot="icon" class="w-8 h-8 text-blue-500">
+    <figure slot="icon" class="2xl:w-8 2xl:h-8 w-6 text-blue-500">
       <Location />
     </figure>
   </PersonalDataItem>
   <PersonalDataItem title={item2} className="min-w-9 h-9">
     <span>{item2Text}</span>
-    <figure slot="icon" class="w-8 h-8 text-blue-500">
+    <figure slot="icon" class="2xl:w-8 2xl:h-8 w-8 h-8 text-blue-500">
       <Work />
     </figure>
   </PersonalDataItem>
   <PersonalDataItem className="" title={item3}>
-    <figure slot="icon" class="w-8 h-8 text-sky-500">
+    <figure slot="icon" class="2xl:w-8 2xl:h-8 w-8 h-8 text-sky-500">
       <Code/>
     </figure>
     <span>+4 {lang === "es" ? "Años" : "Years"}</span>
@@ -46,7 +46,7 @@ const item5 = lang === "es" ? "Redes Sociales" : "Social Media";
       class="bg-green-600 rounded-full w-4 h-4 justify-self-center animate-pulse"
     />
   </PersonalDataItem>
-  <PersonalDataItem title={item5} className="min-w-9 h-9">
+  <PersonalDataItem title={item5} className="2xl:w-8 2xl:h-8 min-w-9 h-9">
     <a
       href="https://github.com/JuanZuniga79"
       target="_blank"

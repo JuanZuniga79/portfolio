@@ -1,5 +1,4 @@
 ---
-import GitHubActivity from "../components/resume/GitHubActivity.astro";
 import Skills from "./Skills.astro";
 interface Props {
     lang: string;
@@ -9,5 +8,4 @@ const { lang } = Astro.props;
 
 <section class="grid grid-cols-12 gap-5">
     <Skills lang={lang} />
-    <GitHubActivity lang={lang} />
 </section>

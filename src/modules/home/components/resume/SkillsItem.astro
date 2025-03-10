@@ -12,29 +12,28 @@ const preferred = lang === "es" ? "Preferencia" : "Preferred";
 const proficient = lang === "es" ? "Competente" : "Proficient";
 const beginner = lang === "es" ? "Principiante" : "Beginner";
 const learning = lang === "es" ? "Aprendiendo" : "Learning";
-const frecuency = lang === "es" ? "Frecuencia" : "Frecuency";
 const projects = lang === "es" ? "Proyectos" : "ProjectsSection";
 ---
 
 <div
-    class="border-[1px] border-neutral-200 rounded-2xl p-4 flex flex-col gap-y-8 bg-white"
+    class="border-[1px] border-neutral-200 rounded-2xl col-span-1 p-4 flex flex-col gap-y-8 bg-white"
 >
-    <h4 class="text-2xl font-serif font-semibold text-neutral-800">{title}</h4>
-    <ul class="flex flex-col gap-y-5">
+    <h4 class="lg:text-lg 2xl:text-2xl font-serif font-semibold text-neutral-800">{title}</h4>
+    <ul class="flex flex-col gap-y-2 2xl:gap-y-5">
         {
             item
                 .sort((a, b) => b.level - a.level)
                 .map((item) => (
                     <li class="grid grid-cols-6 p-2 items-center">
                         <div
-                            class={`rounded-full w-10 h-10 flex items-center justify-center ${bg}`}
+                            class={`rounded-full 2xl:w-10 2xl:h-10 w-8 h-8 flex items-center justify-center ${bg}`}
                         >
-                            <figure class="w-6 h-6 text-white">
+                            <figure class="2xl:w-6 2xl:h-6 w-5 text-white">
                                 <slot />
                             </figure>
                         </div>
                         <div class="col-span-5 flex flex-col gap-y-1">
-                            <h5 class="uppercase font-serif font-medium text-lg">
+                            <h5 class="uppercase font-serif font-medium 2xl:text-lg text-base">
                                 {item.name}
                             </h5>
                             <div class="flex flex-col w-full">

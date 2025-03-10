@@ -5,6 +5,7 @@ import HTML from "../assets/icons/HTML.astro";
 import ServerIcon from "../assets/icons/ServerIcon.astro";
 import Database from "../assets/icons/Database.astro";
 import Code from "../assets/icons/Code.astro";
+import GitHubActivity from "../components/resume/GitHubActivity.astro";
 interface Props {
     lang: string;
 }
@@ -12,10 +13,11 @@ const { lang } = Astro.props;
 const title = lang === "es" ? "Habilidades" : "Skills";
 ---
 
-<section class="col-span-12 grid grid-cols-4 gap-5">
-    <div class="col-span-4 text-5xl font-bold font-serif">
+<section class="col-span-12 grid 2xl:grid-cols-4 grid-cols-3 gap-5">
+    <div class="2xl:col-span-4 lg:col-span-3 lg:text-3xl 2xl:text-5xl font-bold font-serif">
         <h4 class="uppercase">{title}</h4>
     </div>
+    <GitHubActivity lang={lang} />
     <SkillsItem lang={lang} title="Frontend" item={frontend} bg="bg-blue-500">
         <HTML />
     </SkillsItem>

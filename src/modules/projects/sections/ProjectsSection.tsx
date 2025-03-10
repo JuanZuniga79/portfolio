@@ -50,7 +50,7 @@ export default function ProjectsSection({lang, items}: Props){
                         onChange={(value) => setLanguage(value)} items={languagesFilter} />
             </div>
             <div className="w-full h-[1px] bg-neutral-300"/>
-            <ul className="grid grid-cols-3 gap-10 items-stretch">
+            <ul className="grid 2xl:grid-cols-3 2xl:gap-10 grid-cols-2 gap-5 items-stretch">
                 {data.map((item, index) => (
                     <li key={index} className="rounded-2xl w-full h-fit overflow-hidden bg-white">
                         <picture className="w-full h-[50%]">
