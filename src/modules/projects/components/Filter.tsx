@@ -42,7 +42,8 @@ export default function Filter({items,placeholder, id, onChange}: Props){
         <Popover open={open} onOpenChange={setOpen}>
             <PopoverTrigger asChild>
                 <Button variant="ghost" role="combobox" aria-expanded={open}
-                        className="w-[200px] justify-start border-[1px] cursor-pointer font-light border-neutral-200
+                        style={{width: '200px', display: 'flex', alignItems: 'center', justifyItems: 'start', rowGap: '10px'}}
+                        className="border-[1px] cursor-pointer font-light border-neutral-200
                         hover:bg-neutral-100 transition-colors duration-300 hover:border-neutral-300 bg-white
                         text-base">
                     {active && value ? (
@@ -57,8 +58,8 @@ export default function Filter({items,placeholder, id, onChange}: Props){
                     )}
                 </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-[200px] p-0">
-                <Command>
+            <PopoverContent style={{width: '200px', padding: '0'}}>
+                <Command style={{backgroundColor: "white"}}>
                     <CommandInput placeholder={`select ${placeholder}`} />
                     <CommandList>
                         <CommandEmpty>{`No ${placeholder} found`}</CommandEmpty>
@@ -79,8 +80,7 @@ export default function Filter({items,placeholder, id, onChange}: Props){
                                         <img src={item.icon} alt="filter icon" className="w-5 h-5"/>
                                         <span>{item.label}</span>
                                     </div>
-                                    <Check className={cn("h-4 w-4",
-                                        value === item.label ? "opacity-100" : "opacity-0")}/>
+                                    {value === item.label && (<Check className="h-4 w-4"/>)}
                                 </CommandItem>
                             ))}
                         </CommandGroup>

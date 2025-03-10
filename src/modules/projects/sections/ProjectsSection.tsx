@@ -50,13 +50,14 @@ export default function ProjectsSection({lang, items}: Props){
                         onChange={(value) => setLanguage(value)} items={languagesFilter} />
             </div>
             <div className="w-full h-[1px] bg-neutral-300"/>
-            <ul className="grid 2xl:grid-cols-3 2xl:gap-10 grid-cols-2 gap-5 items-stretch">
+            <ul style={{alignItems: "stretch", gridTemplateColumns: "1fr 1fr 1fr"}}
+                className="grid xl:gap-10 gap-5">
                 {data.map((item, index) => (
                     <li key={index} className="rounded-2xl w-full h-fit overflow-hidden bg-white">
                         <picture className="w-full h-[50%]">
-                            <img src={item.cover} height={200} className="h-[250px] w-full" alt="project image" />
+                            <img src={item.cover} style={{height: '250px'}} className="w-full" alt="project image" />
                         </picture>
-                        <div className="p-5 flex flex-col gap-y-2">
+                        <div style={{padding: '30px'}} className="flex flex-col gap-y-2">
                             <h5 className="text-2xl font-semibold italic">{item.name}</h5>
                             <ul className="flex items-center justify-start gap-2 flex-wrap">
                                 {item.skills.map((skill, index) => (
