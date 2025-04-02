@@ -6,7 +6,7 @@ interface Props {
     lang: string;
 }
 const { lang } = Astro.props;
-const title = lang === "es" ? "Proyectos" : "ProjectsSection";
+const title = lang === "es" ? "Proyectos" : "Projects";
 const description =
     lang === "es"
         ? "Estos son algunos de mis favoritos."
@@ -22,10 +22,10 @@ const data = await (async () => {
     }
     return items;
 })();
-const items = data.filter((item) => item.qualification >= 8);
+const items = data;
 ---
 
-<section class="w-full flex flex-col gap-y-14 relative items-center">
+<section id="projects" class="w-full flex flex-col gap-y-14 relative items-center">
     <div class="flex flex-col items-start justify-center w-full gap-y-4">
         <h3 class="text-5xl text-left font-semibold">{title}</h3>
         <p

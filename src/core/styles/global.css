@@ -10,8 +10,11 @@
     --font-mono: "VT323", serif;
 }
 
-body {
+html{
     scroll-behavior: smooth;
+}
+
+body {
     width: 100dvw;
     height: 100dvh;
 }

@@ -10,9 +10,9 @@ const en: IHeaderNav[] = [
     {label: "Projects", path: "/projects"},
 ]
 const items = lang === "es" ? en : en;
+const download = lang === "es" ? "Descargar CV" : "Download CV";
 ---
-<nav class="flex col-span-2 justify-self-center items-center justify-evenly text-sm rounded-3xl transition-all
-     bg-white font-serif w-80 py-1.5 px-5">
+<nav class="flex items-center text-base font-serif py-1.5 px-5 gap-x-4">
     {items.map((item)=>(
         <a href={`/${lang}${item.path}`}
            class={`rounded-2xl hover:text-gray-900 
@@ -21,7 +21,7 @@ const items = lang === "es" ? en : en;
             {item.label}
         </a>
     ))}
-    <a href="" class={`rounded-2xl text-gray-900/60 hover:text-gray-900`}>
-        Blog
+    <a href="" class="px-5 py-1.5 rounded-full bg-blue-600 text-white hover:bg-blue-800 hover:text-white">
+        {download}
     </a>
 </nav>

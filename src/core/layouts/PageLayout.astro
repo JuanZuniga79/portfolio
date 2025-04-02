@@ -31,14 +31,14 @@ const { title, lang, path }: Props = Astro.props;
         <title>{title}</title>
         <ClientRouter />
     </head>
-    <body class="bg-neutral-100 w-dvw h-dvh overflow-hidden">
+    <body class="bg-neutral-100 dark:bg-slate-950 w-dvw h-dvh overflow-hidden font-poppins">
         <div
             id="container"
-            class="flex flex-col items-center h-dvh overflow-y-auto scrollbar"
+            class="flex flex-col items-center justify-center h-dvh overflow-y-auto scrollbar"
         >
             <Header lang={lang} path={path} />
             <main
-                class="flex flex-col lg:w-[90%] 2xl:w-[80%] min-h-full pt-20 h-fit relative gap-y-20"
+                class="flex flex-col lg:w-[90%] 2xl:w-[90%] min-h-full pt-20 h-fit relative gap-y-20"
             >
                 <slot />
                 <Footer lang={lang} />
@@ -60,12 +60,16 @@ const { title, lang, path }: Props = Astro.props;
             const scroll = container.scrollTop;
             localStorage.setItem("scrollHeight", scroll.toString());
             if (!header) return;
-            if (scroll > 60) {
-                if (header.classList.contains("border-b-[1px]")) return;
-                header.classList.add("border-b-[1px]");
+            if (scroll > 10) {
+                header.classList.remove("w-[95%]")
+                const classesToAdd =
+                    "w-[50%] px-8 rounded-full py-2 bg-neutral-200/60".split(" ");
+                header.classList.add(...classesToAdd);
             } else {
-                if (!header.classList.contains("border-b-[1px]")) return;
-                header.classList.remove("border-b-[1px]");
+                const classesToRemove =
+                    "w-[50%] px-8 rounded-full py-3 bg-neutral-200/60".split(" ");
+                header.classList.remove(...classesToRemove);
+                header.classList.add("w-[95%]")
             }
         });
     }

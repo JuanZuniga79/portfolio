@@ -1,16 +1,14 @@
 ---
-import Services from "../components/hero/Services.astro";
-import Resume from "../components/hero/Resume.astro";
-import TitleHero from "../components/hero/TitleHero.astro";
-import profile from "../assets/images/profile.png";
+import Services from "../home/components/hero/Services.astro";
+import Resume from "../home/components/hero/Resume.astro";
+import TitleHero from "../home/components/hero/TitleHero.astro";
+import profile from "../home/assets/images/profile.png";
 import { Image } from "astro:assets";
-interface Props {
-    lang: string;
-}
-const { lang } = Astro.props;
+const lang = Astro.currentLocale;
+if (!lang) return;
 ---
 
-<section class="grid grid-cols-4 gap-x-2 w-full min-h-full h-full">
+<section id="hero" class="grid grid-cols-4 gap-x-2 py-10 w-full min-h-full h-full">
     <Services lang={lang} />
     <div
         class="flex flex-col items-center justify-start gap-y-6 col-span-2 h-full"

@@ -1,13 +1,15 @@
 ---
+import ActiveSvg from "../assets/svg/ActiveSvg.astro";
+import type IHeaderNav from "../types/IHeaderNav";
 interface Props {
-  href: string;
-  active: boolean;
+  item: IHeaderNav;
 }
-const { href, active } = Astro.props;
+const {item} = Astro.props;
 ---
-
-<div class={`w-fit h-fit hover:bg-white rounded-xl ${active && "bg-white"}`}>
-  <a class="cursor-pointer px-4 py-1.5 flex gap-2 items-center" href={href}>
-    <slot />
-  </a>
+<div id={`bt${item.path}`}
+     class="rounded-2xl group text-blue-600 hover:text-blue-400 relative cursor-pointer">
+  <span class="text-gray-700 dark:text-white">{item.label}</span>
+  <figure class="w-full group-hover:opacity-100 opacity-0 h-1 absolute bottom-0">
+    <ActiveSvg/>
+  </figure>
 </div>
