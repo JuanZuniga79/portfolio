@@ -2,13 +2,13 @@ import type IHeaderNav from "../types/IHeaderNav.ts";
 
 const en: IHeaderNav[] = [
     {label: "home", path:"hero"},
-    {label: "resume", path:"projects"},
     {label: "skills", path:"skills"},
+    {label: "projects", path:"projects"},
 ]
 const es: IHeaderNav[] = [
     {label: "inicio", path:"hero"},
-    {label: "resumen", path:"projects"},
     {label: "habilidades", path:"skills"},
+    {label: "projects", path:"projects"},
 ]
 
 export default async function getNavElements(lang: string){

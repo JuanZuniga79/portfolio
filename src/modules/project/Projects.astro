@@ -1,0 +1,76 @@
+---
+import {Image} from "astro:assets";
+import SectionLayout from "../../core/layouts/SectionLayout.astro";
+import {fetchCollection} from "../../core/services/content_services";
+import type {IProjectSystem} from "./types/IProjectSystem";
+import {getCollection, render} from "astro:content";
+import Calendar from "../skills/assets/sys/Calendar";
+import Code from "./assets/astro_svg/code.astro";
+import Description from "./components/Description";
+const lang = Astro.currentLocale!
+const data = await fetchCollection<IProjectSystem>("projectsSystem", lang);
+if(!data) return;
+const system = data[0];
+const collection = await getCollection("projectsData");
+const items = await (async () => {
+    const items = [];
+    for await (const item of collection) {
+        if (!item.id.includes(lang)) continue;
+        const { Content } = await render(item);
+        items.push({ ...item.data, Content });
+    }
+    return items;
+})();
+---
+<SectionLayout subtitle={system.data.subtitle} title={system.data.title} id="projects">
+    <ul class="pt-10 grid grid-cols-4 gap-5">
+        {items.map((item, i) => (
+            <li class="border-[1px] rounded-xl min-h-[450px] w-full overflow-hidden select-none cursor-pointer">
+                <Image src={item.coverUrl} alt="Project cover" width={1920} height={1080}
+                       class="w-full object-contain" />
+                <div class="p-4 flex flex-col gap-y-2">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-xl font-medium font-poppins">{item.title}</h3>
+                        <figure class="bg-blue-600 rounded-full px-4 py-1 text-white text-xs">
+                            {item.done ? system.data.completed : system.data.inProgress}
+                        </figure>
+                    </div>
+                    <div class="flex items-center justify-between gap-x-2">
+                        <div class="flex items-center gap-x-2 font-light text-sm">
+                            <figure class="w-5 h-5 text-neutral-400">
+                                <Calendar/>
+                            </figure>
+                            <span>{item.date}</span>
+                        </div>
+                        <div class="px-4 py-0.5 rounded-full flex items-center gap-x-2 border-[1px]">
+                            <figure class="w-5 h-5 text-neutral-400">
+                                <Code/>
+                            </figure>
+                            <span class="text-sm font-light">{item.type}</span>
+                        </div>
+                    </div>
+                    <Description client:only="react" short_description={item.short_description} description={item.description} />
+                    <ul class="flex items-center justify-start gap-x-2 flex-wrap py-4">
+                        {item.technologies.map((item) => (
+                            <li class="font-light text-sm border-[1px] px-4 rounded-full">{item}</li>
+                        ))}
+                    </ul>
+                    {item.repository && (
+                        <a href={item.repository} rel="noopener noreferrer" target="_blank"
+                           class="px-4 py-1 text-sm font-light rounded-lg bg-blue-500 w-fit text-white
+                           hover:text-white hover:bg-blue-700">
+                            {system.data.repository}
+                        </a>
+                    )}
+                    {item.live && (
+                        <a href={item.repository} rel="noopener noreferrer" target="_blank"
+                           class="px-4 py-1 text-sm font-light rounded-lg bg-blue-500 w-fit text-white
+                                hover:text-white hover:bg-blue-700">
+                           {system.data.live}
+                        </a>
+                    )}
+                </div>
+            </li>
+        ))}
+    </ul>
+</SectionLayout>

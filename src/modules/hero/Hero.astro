@@ -1,32 +1,71 @@
 ---
-import Services from "../home/components/hero/Services.astro";
-import Resume from "../home/components/hero/Resume.astro";
-import TitleHero from "../home/components/hero/TitleHero.astro";
-import profile from "../home/assets/images/profile.png";
-import { Image } from "astro:assets";
+import {Image} from "astro:assets"
+import profile from "./assets/images/profile.png"
+import starSvg from "../../core/assets/icons/system/star.svg";
+import {fetchCollection} from "../../core/services/content_services";
+import type IPersonCollection from "./types/IPersonCollection";
+import type IHSystemCollection from "./types/IHSystemCollection";
+
 const lang = Astro.currentLocale;
 if (!lang) return;
+const person = await fetchCollection<IPersonCollection>("heroPerson", lang).then((res)=> {
+    if(!res) return undefined;
+    return res[0];
+});
+if(!person) return;
+const system = await fetchCollection<IHSystemCollection>("heroSystem", lang).then((res)=> {
+    if(!res) return undefined;
+    return res[0];
+})
+if(!system) return;
 ---
-
-<section id="hero" class="grid grid-cols-4 gap-x-2 py-10 w-full min-h-full h-full">
-    <Services lang={lang} />
-    <div
-        class="flex flex-col items-center justify-start gap-y-6 col-span-2 h-full"
-    >
-        <TitleHero title="Juan C. Zuniga" />
-        <div class="relative flex items-center justify-center w-[100%]">
-            <div
-                class="min-h-[80%] h-[80%] w-[80%] border-2 border-neutral-300 bg-white p-4 rounded-2xl
-                absolute bottom-0 z-0"
-            >
-                <div class="bg-neutral-200 rounded-2xl w-full min-h-full"></div>
-            </div>
-            <Image
-                src={profile}
-                alt=""
-                class="z-[1] h-full pb-[20px] lg:w-[300px] xl:w-[450px] 2xl:w-[600px] -ml-1 select-none object-contain"
-            />
+<section id="hero" class="w-[70%] place-self-center min-h-dvh grid grid-cols-2 gap-x-2">
+    <div class="flex flex-col gap-y-6 justify-center">
+        <div class="flex items-center gap-x-2 border-[1px] border-primary/20 rounded-full w-fit px-4 py-0.5
+            bg-primary/10">
+            <figure class="w-fit h-fit"><Image src={starSvg} alt="star" width={24} height={24}/></figure>
+            <span class="font-light text-sm">{person.data.position}</span>
+        </div>
+        <p class="section_title">
+            <span>{person.data.firstName}</span><span class="text-primary">{person.data.lastName}</span>
+        </p>
+        <p class="font-poppins font-light text-xl capitalize break-words">
+            {person.data.description}
+        </p>
+        <p class="content">{person.body}</p>
+        <div class="w-full text-center">
+            <figure id="btnHireMe"
+                    class="bg-primary px-5 py-2 rounded-full capitalize text-white hover:bg-primary/80 cursor-pointer">
+                {system.data.hire}
+            </figure>
+            <script>
+                const btnHireMe = document.getElementById("btnHireMe");
+                const target = document.getElementById("contact");
+                if(btnHireMe) btnHireMe.addEventListener("click", () => {
+                    if(!target) return;
+                    target.scrollIntoView({behavior: "smooth"});
+                });
+            </script>
+        </div>
+        <ul class="flex items-center justify-evenly gap-x-2 text-4xl">
+            <li class="flex flex-col text-center items-center">
+                <span class="font-semibold text-primary">+{person.data.years}</span>
+                <span class="capitalize text-base">{system.data.years}</span>
+            </li>
+            <li class="flex flex-col text-center items-center">
+                <span class="font-semibold text-primary">+{person.data.clients}</span>
+                <span class="capitalize text-base">{system.data.clients}</span>
+            </li>
+            <li class="flex flex-col text-center items-center">
+                <span class="font-semibold text-primary">+{person.data.projects}</span>
+                <span class="capitalize text-base">{system.data.projects}</span>
+            </li>
+        </ul>
+    </div>
+    <div class="w-full flex justify-end items-center p-4 rounded-full">
+        <div class="w-fit relative flex items-center justify-center bg-white rounded-2xl">
+            <Image src={profile} alt="profile" width={256} height={256} class="rounded-b-2xl"/>
+            <figure class="absolute w-[110%] h-[105%] bg-neutral-200 rounded-2xl -z-10"></figure>
         </div>
     </div>
-    <Resume lang={lang} />
 </section>

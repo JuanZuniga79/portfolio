@@ -1,10 +1,10 @@
 ---
 import PageLayout from "../core/layouts/PageLayout.astro";
-import Resume from "../modules/home/sections/Resume.astro";
-import Projects from "../modules/home/sections/Projects.astro";
+import Projects from "../modules/project/Projects.astro"
 import About from "../modules/home/sections/About.astro";
 import Education from "../modules/home/sections/ExperienceNEducation.astro";
 import Hero from "../modules/hero/Hero.astro"
+import Skills from "../modules/skills/Skills.astro";
 const locale = Astro.currentLocale;
 if (!locale) {
     return Astro.redirect("not-found");
@@ -15,6 +15,6 @@ if (!locale) {
     <Hero/>
     <About />
     <Education />
-    <Resume lang={locale} />
-    <Projects lang={locale} />
+    <Skills/>
+    <Projects/>
 </PageLayout>

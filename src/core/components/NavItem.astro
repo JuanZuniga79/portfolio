@@ -8,7 +8,7 @@ const {item} = Astro.props;
 ---
 <div id={`bt${item.path}`}
      class="rounded-2xl group text-blue-600 hover:text-blue-400 relative cursor-pointer">
-  <span class="text-gray-700 dark:text-white">{item.label}</span>
+  <span class="text-gray-700 dark:text-white capitalize">{item.label}</span>
   <figure class="w-full group-hover:opacity-100 opacity-0 h-1 absolute bottom-0">
     <ActiveSvg/>
   </figure>

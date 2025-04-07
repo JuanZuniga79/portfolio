@@ -1,0 +1,40 @@
+
+:root{
+    --font-weight-light: 250;
+    --font-weight-normal: 400;
+    --font-weight-semiBold: 600;
+    --font-weight-bold: 700;
+    --font-size-p: 0.885em;
+    --font-size-h1: 3.75em;
+    --font-size-h2: 2.5em;
+    --font-size-h3: 1.75em;
+    --font-size-h4: 1.25em;
+}
+
+.section_title{
+    font-family: var(--font-serif) serif;
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-bold);
+}
+
+.section_subtitle{
+    font-family: var(--font-poppins), monospace;
+    font-size: var(--font-size-h2);
+    font-weight: var(--font-weight-bold);
+    font-style: italic;
+}
+
+.content_title{
+    font-family: var(--font-serif), serif;
+    font-size: var(--font-size-h3);
+    font-weight: var(--font-weight-semiBold);
+}
+
+.content{
+    font-family: var(--font-poppins), sans-serif;
+    font-weight: var(--font-weight-light);
+    font-size: var(--font-size-p);
+    white-space: pre-wrap;
+    text-align: left;
+    line-height: 1.8;
+}

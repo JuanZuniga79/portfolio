@@ -7,7 +7,7 @@
 @theme {
     --font-poppins: Poppins, sans-serif;
     --font-serif: "Noto Serif", serif;
-    --font-mono: "VT323", serif;
+    --font-mono: "Syne Mono", monospace;
 }
 
 html{
@@ -23,7 +23,7 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
     scrollbar-width: thin;
-    scrollbar-color: oklch(0.623 0.214 259.815) transparent;
+    scrollbar-color: var(--color-primary) transparent;
 }
 
 :root {
@@ -33,7 +33,7 @@ body {
     --card-foreground: oklch(0.145 0 0);
     --popover: oklch(1 0 0);
     --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
+    --primary: oklch(0.623 0.214 259.815);
     --primary-foreground: oklch(0.985 0 0);
     --secondary: oklch(0.97 0 0);
     --secondary-foreground: oklch(0.205 0 0);

@@ -1,6 +1,5 @@
 ---
 import { render } from "astro:content";
-import ServicesElement from "./ServicesElement.astro";
 import { getCollection } from "astro:content";
 interface Props {
   lang: string;
@@ -19,13 +18,25 @@ const items = await (async () => {
 })();
 ---
 
-<div class="flex flex-col gap-y-10 justify-end 2xl:justify-center">
-  <h3 class="lg:text-xl 2xl:text-3xl font-medium font-serif">{title}</h3>
-  {
-    items.map((item) => (
-      <ServicesElement title={item.title} description={item.description}>
-        <item.Content />
-      </ServicesElement>
-    ))
-  }
+<div class="flex flex-col gap-y-8 justify-end 2xl:justify-center">
+  <h3 class="section_subtitle">{title}</h3>
+  <ul class="flex flex-col gap-y-5">
+    {
+      items.map((item) => (
+          <div class="flex flex-col gap-y-2">
+            <div class="flex items-end gap-x-2">
+              <div class="rounded-lg p-1.5 border-[1px] border-neutral-200 bg-white">
+                <figure class="w-6 h-6">
+                  <item.Content/>
+                </figure>
+              </div>
+              <h4 class="content_title">{item.title}</h4>
+            </div>
+            <p class="content ml-2">
+              {item.description}
+            </p>
+          </div>
+      ))
+    }
+  </ul>
 </div>

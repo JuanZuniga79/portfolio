@@ -3,6 +3,7 @@ import TimelineContainer from "../components/timeline/TimelineContainer.astro";
 import TimelineCard from "../components/timeline/TimelineCard.astro";
 import getEduNExp from "../services/getEduNExp";
 import type ITimeline from "../types/ITimeline";
+import SectionLayout from "../../../core/layouts/SectionLayout.astro";
 
 const lang = Astro.currentLocale;
 if (!lang) return;
@@ -11,21 +12,18 @@ const title =
 const data = getEduNExp(lang);
 ---
 
-<section id="education" class="w-full grid grid-cols-5 gap-y-14">
-    <div class="col-span-5 lg:text-3xl 2xl:text-5xl font-bold font-serif">
-        <h4 class="uppercase">{title}</h4>
-    </div>
-    <TimelineContainer>
-        <div
-            class="w-[8px] rounded-2xl h-full bg-neutral-300 absolute -z-10 left-[calc(50%-4px)]"
-        >
-        </div>
-        <div class="w-full h-fit py-4 flex flex-col gap-y-2">
-            {
-                data.map((item: ITimeline, i) => (
-                    <TimelineCard data={item} index={i} lang={lang} />
-                ))
-            }
-        </div>
-    </TimelineContainer>
-</section>
+<SectionLayout title={title} subtitle="" id="education">
+        <TimelineContainer>
+            <div
+                    class="w-[8px] rounded-2xl h-full bg-neutral-300 absolute -z-10 left-[calc(50%-4px)]"
+            >
+            </div>
+            <div class="w-full h-fit py-4 flex flex-col gap-y-2">
+                {
+                    data.map((item: ITimeline, i) => (
+                            <TimelineCard data={item} index={i} lang={lang} />
+                    ))
+                }
+            </div>
+        </TimelineContainer>
+</SectionLayout>

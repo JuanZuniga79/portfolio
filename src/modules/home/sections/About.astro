@@ -4,6 +4,7 @@ import PersonalData from "../components/resume/PersonalData.astro";
 import WPM from "../components/resume/WPM.astro";
 import profile from "../assets/images/profile2.png";
 import AboutItem from "../components/resume/AboutItem.astro";
+import SectionLayout from "../../../core/layouts/SectionLayout.astro";
 
 const lang = Astro.currentLocale;
 if (!lang) return;
@@ -26,15 +27,9 @@ const langContent = lang === "es" ? "Ingles/Español" : "English/Spanish";
 const years = lang === "es" ? "Años programando" : "Years Coding";
 ---
 
+<SectionLayout title={about} subtitle={phrase} id="about">
 <section id="about" class="grid grid-cols-5 gap-x-10 gap-y-5 w-full">
   <div class="col-span-3 flex flex-col self-end lg:gap-y-4 2xl:gap-y-12">
-    <h3 class="uppercase lg:text-3xl 2xl:text-5xl font-bold font-serif col-span-4">{about}</h3>
-    <h4
-      class="first-letter:uppercase lg:first-letter:text-3xl 2xl:first-letter:text-4xl font-light 2xl:text-xl
-      lg:text-base italic first-letter:font-mono"
-    >
-      {phrase}
-    </h4>
     <div class="grid grid-cols-2 gap-x-5 text-base">
       <div class="flex flex-col gap-y-2">
         <AboutItem title={name} content="Juan Camilo" />
@@ -103,3 +98,4 @@ const years = lang === "es" ? "Años programando" : "Years Coding";
     });
   </script>
 </section>
+</SectionLayout>
