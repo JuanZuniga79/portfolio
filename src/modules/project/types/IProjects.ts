@@ -8,5 +8,5 @@ export default interface IProjects {
     technologies: string[];
     repository?: string;
     live?: string;
-    coverUrl: string;
+    coverUrl?: string;
 }

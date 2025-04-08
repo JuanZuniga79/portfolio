@@ -10,7 +10,7 @@ const projectDataSchema = z.object({
     technologies: z.array(z.string()),
     repository: z.optional(z.string()),
     live: z.optional(z.string()),
-    coverUrl: z.string(),
+    coverUrl: z.optional(z.string()),
 })
 
 export default projectDataSchema

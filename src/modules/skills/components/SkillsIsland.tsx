@@ -31,7 +31,7 @@ export default function SkillsIsland({data}: Props) {
     }
 
     return(
-        <div className="w-full flex flex-col items-center py-10 gap-10">
+        <div style={{gap: 10}} className="w-full flex flex-col items-center py-10">
             <ul className="flex items-center justify-center gap-x-2 w-full">
                 <SkillsFilters onChange={handleActive} />
             </ul>
