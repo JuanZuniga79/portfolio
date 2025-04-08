@@ -13,6 +13,7 @@ import frontend from "../data/frontend.ts";
 import backend from "../data/backend.ts";
 import mobile from "../data/mobile.ts";
 import tools from "../data/tools.ts";
+import "../styles/styles.css"
 
 interface Props{
     data: ISkillSystem
@@ -36,9 +37,9 @@ export default function SkillsIsland({data}: Props) {
                 <SkillsFilters onChange={handleActive} />
             </ul>
             <article className="w-full h-fit font-poppins">
-                <ul className="w-full grid lg:grid-cols-2 2xl:grid-cols-3 gap-5 p-5 items-stretch">
+                <ul className="w-full skills_container p-5 items-stretch">
                     {items.sort((a,b)=> b.level - a.level).map((item, index) => (
-                        <li className="w-full h-full border-[1px] border-neutral-200 bg-white rounded-2xl p-5
+                        <li className="w-full h-full border-[1px] border-neutral-200 bg-white rounded-2xl skills_item
                             gap-y-4 flex flex-col">
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center justify-start gap-x-2">

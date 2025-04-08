@@ -10,14 +10,13 @@ interface Props {
 }
 const { data, index, lang } = Astro.props;
 ---
-
 <div
-    class={`w-[calc(50%+20px)] flex items-center relative py-2 z-10 bg-inherit container
-    ${index % 2 === 0 ? "place-self-end" : "flex-row-reverse"}`}
+    class={`w-[calc(50%+20px)] flex items-center relative py-2 z-10 bg-inherit
+        ${index % 2 === 0 ? "place-self-end" : "flex-row-reverse"}`}
 >
     <div
-        class="min-w-[40px] h-[40px] bg-white border-[1px] border-neutral-300 rounded-full flex
-        items-center justify-center"
+        class="min-w-[40px] w-[40px] max-w-[40px] h-[40px] bg-white border-[1px] border-neutral-300 rounded-full
+        flex items-center justify-center"
     >
         <figure class="w-7 h-7 text-blue-600">
             {data.type === "education" ? <Book /> : <Work />}
@@ -32,7 +31,7 @@ const { data, index, lang } = Astro.props;
             <h4 class="font-semibold text-lg font-serif">{data.title}</h4>
             <span class="font-extralight text-xs">
                 {
-                    `${dateFormater(data.start, lang)}${data.end ? ` - ${dateFormater(data.end, lang)}` : ""}`
+                    `${dateFormater(data.start, lang)} ${data.end ? `- ${dateFormater(data.end, lang)}`: ""}`
                 }
             </span>
         </div>
