@@ -37,7 +37,8 @@ const items = await (async () => {
                 <div class="p-4 flex flex-col gap-y-1">
                     <div class="flex items-center justify-between">
                         <h3 class="text-xl font-medium font-poppins">{item.title}</h3>
-                        <figure class="bg-blue-600 rounded-full px-4 py-1 text-white text-xs text-nowrap">
+                        <figure class={`rounded-full px-4 py-1 text-white text-xs text-nowrap 
+                            ${item.done ? "bg-green-600" : "bg-blue-600"}`}>
                             {item.done ? system.data.completed : system.data.inProgress}
                         </figure>
                     </div>
