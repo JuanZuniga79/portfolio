@@ -9,7 +9,7 @@ export default function Description({ short_description, description }: Props) {
     const [open, setOpen] = useState<boolean>(false);
 
     return(
-        <div className="font-light text-sm">
+        <div className="font-light text-sm flex flex-col gap-y-2">
             <p>{short_description}</p>
             <p className={`${open ? "block" : "hidden"}`}>
                 {description}
